@@ -20,8 +20,17 @@ def index():
       },
       {
         'name': 'Scuba Diving',
-      }]
+      }
+    ]
     profiles = [
+      {
+        'service': 'email',
+        'url': 'mailto:arsen@mamikonyan.am',
+      },
+      {
+        'service': 'linkedin',
+        'url': 'https://www.linkedin.com/in/mamikonyana',
+      },
       {
         'service': 'facebook',
         'url': 'https://www.facebook.com/arsen.mamikonyan',
@@ -33,7 +42,16 @@ def index():
       {
         'service': 'github',
         'url': 'https://github.com/mamikonyana'
-      }]
+      }
+    ]
+    projects = [
+      {
+        'title': 'Hygir',
+        'description': 'Help people write in Armenian',
+        'url': 'http://hygir.com',
+      }
+    ]
     return render_template('index.html',
                            interests=interests,
-                           profiles=profiles)
+                           profiles=profiles,
+                           projects=projects)
