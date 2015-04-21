@@ -1,49 +1,12 @@
 from flask import Flask
 from flask import render_template
+import yaml
+
+
 app = Flask(__name__)
 
 @app.route('/')
 def index():
-    interests = [{
-        'name': 'Photography',
-        'url': 'http://ppd.arsen.mamikonyan.am/',
-      },
-      {
-        'name': 'Cooking',
-        'url': 'http://cook.arsen.mamikonyan.am/',
-      },
-      {
-        'name': 'Soccer',
-      },
-      {
-        'name': '3d printing',
-      },
-      {
-        'name': 'Scuba Diving',
-      }
-    ]
-    profiles = [
-      {
-        'service': 'email',
-        'url': 'mailto:arsen@mamikonyan.am',
-      },
-      {
-        'service': 'linkedin',
-        'url': 'https://www.linkedin.com/in/mamikonyana',
-      },
-      {
-        'service': 'facebook',
-        'url': 'https://www.facebook.com/arsen.mamikonyan',
-      },
-      {
-        'service': 'twitter',
-        'url': 'https://twitter.com/mamikonyana',
-      },
-      {
-        'service': 'github',
-        'url': 'https://github.com/mamikonyana'
-      }
-    ]
     projects = [
       {
         'title': 'Hygir',
@@ -51,7 +14,28 @@ def index():
         'url': 'http://hygir.com',
       }
     ]
+    overview_dict = yaml.load(open('knowledge/overview.yml', 'r'))
+    profiles = overview_dict['Social Profiles']
+    interests = overview_dict['Interests']
     return render_template('index.html',
                            interests=interests,
                            profiles=profiles,
                            projects=projects)
+
+@app.route('/reading/')
+def reading():
+    books_dict = yaml.load(open('knowledge/books.yml', 'r'))
+    reading = books_dict['Reading']
+    recomendations = books_dict['Recommend']
+    return render_template('reading.html',
+                           title='Reading',
+                           books={'Currently Reading': reading,
+                                  'I recommend': recomendations})
+
+@app.route('/reading_history/')
+def reading_history():
+    books_dict = yaml.load(open('knowledge/books.yml', 'r'))
+    all_books = books_dict['Reading History']
+    return render_template('reading.html',
+                           title='Books I Have Read',
+                           books={'Reading History (2015)': all_books})

@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block content %}
+  {% for block_name, books in books.items() %}
+    <h2>{{block_name}}</h2>
+    <ul>
+    {% for book in books %}
+      <div class="book">
+
+        {% if 'url' in book %}
+          <li><a href="{{book.url}}">{{book.title}}</a>{% if 'authors' in book %} by {{', '.join(book['authors'])}} {% endif %}</li>
+        {% else %}
+          <li>{{book.title}}{% if 'authors' in book %} by {{', '.join(book['authors'])}} {% endif %}</li>
+        {% endif %}
+
+        <ul>
+          {% if 'date' in book %}
+            <li>Date Read: {{book.date}}</li>
+          {% endif %}
+
+          {% for comment in book.get('comments', []) %}
+            <li>{{comment}}</li>
+          {% endfor %}
+
+          {% if 'isbn-13' in book %}
+            <li>ISBN-13: {{book['isbn-13']}}</li>
+          {% endif %}
+        </ul>
+
+      </div>
+    {% endfor %}
+    </ul>
+  {% endfor %}
+
+{% endblock %}
