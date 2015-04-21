@@ -3,8 +3,26 @@
 {% block title %}Index{% endblock %}
 
 {% block content %}
-    <h1>Hello World!</h1>
     <p class="important">
       Welcome to my awesome homepage.
     </p>
+
+    <h2>My Interests</h2>
+    {% for interest in interests %}
+      <div class="interest">
+        {% if 'url' in interest %}
+          <a href="{{interest.url}}">{{interest.name}}</a>
+        {% else %}
+          {{interest.name}}
+        {% endif %}
+      </div>
+    {% endfor %}
+
+    <h2>Social Profiles</h2>
+    {% for profile in profiles %}
+      <div class="social">
+        <a href="{{profile.url}}">{{profile.service}}</a>
+      </div>
+    {% endfor %}
+
 {% endblock %}
