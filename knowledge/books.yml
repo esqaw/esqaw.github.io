@@ -1,4 +1,19 @@
 Reading:
+  - title: I Am Zlatan Ibrahimovic
+    isbn-13: 978-0241966839
+    isbn-10: 0241966833
+    authors:
+      - Zlatan Ibrahimovic
+      - David Lagercrantz
+      - Ruth Urbom
+  - title: The Game
+    isbn-13: 978-1847672377
+    authors:
+      - Neil Strauss
+  - title: "The World's Religions (Plus)"
+    isbn-13: 978-0061660184
+    authors:
+      - Huston Smith
   - title: How to Read a Book
     url: http://en.wikipedia.org/wiki/How_to_Read_a_Book
     isbn-13: 978-0671212094
