@@ -39,3 +39,10 @@ def reading_history():
     return render_template('reading.html',
                            title='Books I Have Read',
                            books={'Reading History (2015)': all_books})
+
+
+@app.route('/photos/')
+def photos():
+    return render_template('photos.html',
+                           title='Photos',
+                           photos={})
