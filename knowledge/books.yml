@@ -46,21 +46,12 @@ Recommend:
     comments:
       - Հետաքրքիր ներածություն էր պատմվածք ժանրում, ու էլի պատմվածքներ կկարդամ, բայց մի քանի հատը շատ պրիմիտիվ էին, չնայած կային լավերը։
   - title: Shogun
-    ASIN: B002UBRFDC
     authors:
       - James Clavell
     date: 2015.08-09
     url: https://en.wikipedia.org/wiki/Sh%C5%8Dgun_%28novel%29
     comments:
       - This is a very entertaining book even though it's 1000 pages long! It's like reading Game of Thrones but in medieval Japan and without fantasy. I really recommend this book if you want entertainment and some basic insight into Japanese mentally and self control and cunning planing.
-  - title: The Orphan Master's Son
-    ASIN: B004X6PRO6
-    authors:
-      - Adam Johnson
-    date: 2015.07
-    url: https://en.wikipedia.org/wiki/The_Orphan_Master's_Son
-    comments:
-      - Very well written book, I liked it. It is Fiction but it seems so real that you think you are reading a history book about some person. It makes you think about the values in life, and what is necessary for oneself to live. Very entertaining and I'd recommend, the only downside is that it's a pretty dark novel.
   - title: Преступление и Наказание
     authors:
       - Фёдор Достое́вский
@@ -69,10 +60,13 @@ Recommend:
     comments:
       - I wanted to read this book for a while and it was worth reading. It's a very intriguing story and thought provoking. It's not an easy read, but well worth the effor. The ending is probably not the great (the very last part) but the story is very interesting and as I said though provoking.
   - title: The Orphan Master's Son
+    ASIN: B002UBRFDC
     authors:
       - Adam Johnson
     date: 2015.06
     url: https://en.wikipedia.org/wiki/The_Orphan_Master%27s_Son
+    comments:
+      - Very well written book, I liked it. It is Fiction but it seems so real that you think you are reading a history book about some person. It makes you think about the values in life, and what is necessary for oneself to live. Very entertaining and I'd recommend, the only downside is that it's a pretty dark novel.
   - title: The Game
     isbn-13: 978-1847672377
     authors:
