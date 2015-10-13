@@ -1,4 +1,4 @@
-FROM python:3.4.3-onbuild
+FROM python:3.5-onbuild
 
 MAINTAINER Arsen Mamikonyan <arsen@mamikonyan.am>
 
