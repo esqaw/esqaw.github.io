@@ -27,9 +27,11 @@ def reading():
     books_dict = yaml.load(open('knowledge/books.yml', 'r'))
     reading = books_dict['Reading']
     recomendations = books_dict['Recommend']
+    still_reading = books_dict['Still Reading']
     return render_template('reading.html',
                            title='Reading',
                            books={'Currently Reading': reading,
+                                  'Still Reading': still_reading,
                                   'I recommend': recomendations})
 
 @app.route('/reading_history/')
