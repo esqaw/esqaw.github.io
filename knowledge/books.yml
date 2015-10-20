@@ -1,11 +1,11 @@
 Reading:
-  - title: The Silmarillion
-    authors:
-      - J. R. R. Tolkein
   - title: The Society of Mind
     authors:
       - Marvin Minsky
     isbn-13: 978-0671657130
+  - title: Dubliners
+    authors:
+      - James Joyce
 "Still Reading":
   - title: I Am Zlatan Ibrahimovic
     isbn-13: 978-0241966839
@@ -41,6 +41,17 @@ Recommend:
     comments:
       - I wanted to read this book for a while and it was worth reading. It's a very intriguing story and thought provoking. It's not an easy read, but well worth the effor. The ending is probably not the great (the very last part) but the story is very interesting and as I said though provoking.
 "Reading History":
+  - title: The Silmarillion
+    authors:
+      - J. R. R. Tolkein
+    date: 2015.10
+    comments:
+      - |
+        In the beginning I felt like reading the Bible, even though I haven't read
+        it. Very entertaining, but dense and full of names that one must remember
+        when reading. Reading in Kindle helped a lot because of the X-Ray feature.
+        I'm not sure if I liked it to recommend to someone not already liking Game
+        of Thrones of other works of Tolkein.
   - title: Կայարան
     date: 2015.09
     comments:
