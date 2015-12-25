@@ -3,6 +3,9 @@ Reading:
     authors:
       - Marvin Minsky
     isbn-13: 978-0671657130
+  - title: The Road to Character
+    authors:
+      - David Brooks
 "Still Reading":
   - title: I Am Zlatan Ibrahimovic
     isbn-13: 978-0241966839
@@ -39,6 +42,18 @@ Recommend:
       - I wanted to read this book for a while and it was worth reading. It's a very intriguing story and thought provoking. It's not an easy read, but well worth the effor. The ending is probably not the great (the very last part) but the story is very interesting and as I said though provoking.
 
 "Reading History":
+  - title: Zero to One
+    authors:
+      - Peter Thiel
+      - Blake Masters
+    date: 2015.10-12
+    comments:
+      - |
+	      It was a good book to understand how Peter Thiel thinks about startups.
+	      I definitely agree with a lot of points there, but I can not remember
+	      which of the ideas came from this book which from somewhere else. I like
+	      his 7 questions that all startups should ask themselves! It's a good
+	      book if you are considering starting a startup.
   - title: Fahrenheit 451
     authors:
       - Ray Bradbury
