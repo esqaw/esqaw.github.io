@@ -42,12 +42,28 @@ Recommend:
       - I wanted to read this book for a while and it was worth reading. It's a very intriguing story and thought provoking. It's not an easy read, but well worth the effor. The ending is probably not the great (the very last part) but the story is very interesting and as I said though provoking.
 
 "Reading History":
+  - title: The Other Side of the Sky
+    url: https://en.wikipedia.org/wiki/The_Other_Side_of_the_Sky
+    authors:
+      - Arthur C. Clarke
+    date: 2016.01
+    comments:
+      - A very nice relaxing read with some of the stores that I really liked and some that were so so.
+      - I really liked "The Wall of Darkness" and "The Other Side of the Sky" series. "The Songs of Distant Earth" was also good.
+  - title: The Forever War
+    url: https://en.wikipedia.org/wiki/The_Forever_War
+    authors:
+      - Joe Haldeman
+    date: 2015.12
+    comments:
+      - I really liked this book, it was a very nice read and made you question a lot of things we do. (I'm to tired to write more :P)
   - title: Zero to One
     authors:
       - Peter Thiel
       - Blake Masters
     date: 2015.10-12
     comments:
+      - Listened to the audiobook
       - |
         It was a good book to understand how Peter Thiel thinks about startups.
         I definitely agree with a lot of points there, but I can not remember
