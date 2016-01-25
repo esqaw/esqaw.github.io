@@ -47,7 +47,8 @@ Recommend:
     authors:
       - Harry Bates
     date: 2016.01
-    comments: A very cool short story. I did not get the message but it was a very cool story. 
+    comments:
+      - A very cool short story. I did not get the message but it was a very cool story. 
   - title: The Man in the High Castle
     url: https://en.wikipedia.org/wiki/The_Man_in_the_High_Castle
     authors:
