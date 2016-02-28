@@ -21,12 +21,6 @@ Reading:
       - Mortimer Adler
       - Charles Van Doren
 Recommend:
-#   - title: Foundation
-#     url: http://en.wikipedia.org/wiki/Foundation_%28Isaac_Asimov_novel%29
-#     isbn-10: 0-553-29335-4
-#     isbn-13: 978-0553293357
-#     authors:
-#       -   Isaac Asimov
   - title: Foundation Trilogy
     url: http://en.wikipedia.org/wiki/Foundation_series
     authors:
@@ -42,6 +36,27 @@ Recommend:
       - I wanted to read this book for a while and it was worth reading. It's a very intriguing story and thought provoking. It's not an easy read, but well worth the effor. The ending is probably not the great (the very last part) but the story is very interesting and as I said though provoking.
 
 "Reading History":
+  - title: The Big Short
+    authors:
+      - Michael Lewis
+    comments:
+      - Listened to the audiobook
+      - A really nice book! I managed to listen to it in 3 days, keeps you listening. It made me really skeptical about USA and Stock Market in particular.
+    date: 2016.02
+  - title: The Road to Character
+    url: https://en.wikipedia.org/wiki/The_Road_to_Character
+    authors:
+      - David Brooks
+    date: 2015.12 - 2016.02
+    comments:
+      - Listened to the audiobook
+      - It was a nice book with a lot of examples of people that had characters. I like overall idea of the book and what it promotes, but I was not convinced by some of the examples it had. It made me think that US society is divided in a lot of parts, and the part that is non-South thinking (I don't know how else to discribe it), and has achieved something has a lot of values that that my parents taught me. So even though American mentality is far away from Armenian one, there is a set of core values of being human that is shared among both, but you have to dig for those and you only find those values in thinkers of the time.
+  - title: A case of Conscience
+    authors: 
+      - James Blish
+    date: 2016.02
+    comments:
+      - A really well written story. Has a lot of Catholic dogma insights in it, and controversies that come up when viewing other races. It was a really nice read
   - title: Farewell to the Master
     url: https://en.wikipedia.org/wiki/Farewell_to_the_Master
     authors:
