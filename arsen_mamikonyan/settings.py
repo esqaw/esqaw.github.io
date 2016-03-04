@@ -30,9 +30,6 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-import sys
-print(sys.path)
-
 INSTALLED_APPS = [
     'arsen_mamikonyan.frontpage',
     'django.contrib.admin',
