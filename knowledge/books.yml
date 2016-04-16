@@ -36,6 +36,27 @@ Recommend:
       - I wanted to read this book for a while and it was worth reading. It's a very intriguing story and thought provoking. It's not an easy read, but well worth the effor. The ending is probably not the great (the very last part) but the story is very interesting and as I said though provoking.
 
 "Reading History":
+  - title: Do No Harm
+    authors:
+      - Henry Marsh
+    url: https://www.goodreads.com/book/show/21086818-do-no-harm
+    comments:
+      - A good anthology of life stories from a neurosurgeon that is very honest and you actually think you understand how a doctor feels that deals with death on everyday basis.
+    date: 2016.04
+  - title: Fountains of Paradise
+    authors:
+      - Arthur C. Clarke
+    url: https://en.wikipedia.org/wiki/The_Fountains_of_Paradise
+    comments:
+      - A very good book that describe an initiative of a daring engineer to build a space elevator. It touches the ethical dilemmas when building something extraordinary and daring that humanity might not be ready for.
+    date: 2016.03
+  - title: The Lean Startup
+    authors:
+      - Eric Ries
+    url: https://en.wikipedia.org/wiki/The_Lean_Startup
+    comments:
+      - A very good overview of the Startup workflow. It does not give you anything that could not be deduced logically, but it is a great overview that seems to cover the life of startup from inception to self sustainable company.
+    date: 2016.03
   - title: The Big Short
     authors:
       - Michael Lewis
