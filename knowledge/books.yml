@@ -1,8 +1,8 @@
 Reading:
-  - title: The Science Fiction Hall of Fame, Volume One, 1929–1964
+  - title: Flowers for Algernon
     authors:
-      - Various Authors
-    url: https://en.wikipedia.org/wiki/The_Science_Fiction_Hall_of_Fame,_Volume_One,_1929%E2%80%931964
+      - Daniel Keyes
+    data: 2016.05
 "Still Reading":
   - title: The Society of Mind
     authors:
@@ -45,6 +45,17 @@ Recommend:
       - If you are Armennian, it's equally good. Book describes how the authorsfeel and I could related to a lot of his feeling and he put a lot of feelings into words which I really liked.
 
 "Reading History":
+  - title: The Sun Also Rises
+    authors:
+      - Ernest Hemingway
+    data: 2016.04
+  - title: The Science Fiction Hall of Fame, Volume One, 1929–1964
+    authors:
+      - Various Authors
+    url: https://en.wikipedia.org/wiki/The_Science_Fiction_Hall_of_Fame,_Volume_One,_1929%E2%80%931964
+    data: 2016.02-04
+    comments:
+      - Great collection, a very nice exploration and introduction to various great artists.
   - title: Black Dog of Fate
     authors:
       - Peter Balakian
