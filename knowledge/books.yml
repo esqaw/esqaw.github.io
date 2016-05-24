@@ -1,20 +1,12 @@
 Reading:
-  - title: Flowers for Algernon
+  - title: Արշակ Արքա, Դրաստամատ Ներքինի
     authors:
-      - Daniel Keyes
-    data: 2016.05
+    - Լևոն Խոչոյան
 "Still Reading":
   - title: The Society of Mind
     authors:
       - Marvin Minsky
     isbn-13: 978-0671657130
-  - title: I Am Zlatan Ibrahimovic
-    isbn-13: 978-0241966839
-    isbn-10: 0241966833
-    authors:
-      - Zlatan Ibrahimovic
-      - David Lagercrantz
-      - Ruth Urbom
   - title: How to Read a Book
     url: http://en.wikipedia.org/wiki/How_to_Read_a_Book
     isbn-13: 978-0671212094
@@ -43,8 +35,39 @@ Recommend:
     comments:
       - If you are not an Armenian this could be a good way to understand feelings of Armenians about Armenian genocide! It has a very nice personal touch from the author that explains how he feels also give you some historical context of what actually happened, and why it's hard for an Armenian to tell you what happened.
       - If you are Armennian, it's equally good. Book describes how the authorsfeel and I could related to a lot of his feeling and he put a lot of feelings into words which I really liked.
-
+  - title: The Science Fiction Hall of Fame, Volume One, 1929–1964
+    authors:
+      - Various Authors
+    url: https://en.wikipedia.org/wiki/The_Science_Fiction_Hall_of_Fame,_Volume_One,_1929%E2%80%931964
+    data: 2016.02-04
+    comments:
+      - Great collection, a very nice exploration and introduction to various great artists.
+  - title: Short Stories
+    comments:
+      - “The Wall of Darkness” by Arthur C. Clarke
+      - “Publicity Campaign” by Arthur C. Clarke
+      - “Microcosmic God” by Theodore Sturgeon
+      - “The Cold Equations” by Tom Godwin
+      - “First Contact” by Murray Leinster
 "Reading History":
+  - title: I Am Zlatan Ibrahimovic
+    isbn-13: 978-0241966839
+    isbn-10: 0241966833
+    authors:
+      - Zlatan Ibrahimovic
+      - David Lagercrantz
+      - Ruth Urbom
+    date: 2015.05-2016.05
+    comments:
+      - Interesting to read what goes on in the mind of Zlatan. Other than that book is not very well organized, it seems like listening to a mind that strays away while telling its stories. Even with that it was an interesting read, you understand that even professional teams are supposed to be teams, and that professionals should have the desire to win to succeed.
+  - title: Flowers for Algernon
+    url: https://en.wikipedia.org/wiki/Flowers_for_Algernon
+    authors:
+      - Daniel Keyes
+    data: 2016.05
+    comments:
+      - I really liked this book. It seems that it's a story of life compressed into a year. At the same time it is also a look into a mind that you don't understand. Both because you don't understand retarted people and you don't understand geniouses and different problems them face.
+      - It made me wonder if I'm becoming Charlie the Scientist as I try to learn more of everything, because while doing that I feel like I'm becoming lonelier than before. Maybe this is because of moving back to MIT, but still makes you think that smart and accomplished people are usually rude.
   - title: The Sun Also Rises
     authors:
       - Ernest Hemingway
