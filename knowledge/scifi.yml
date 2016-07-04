@@ -130,26 +130,26 @@ The Science Fiction Hall of Fame, Volume Two A:
     title: Call Me Joe"  
     publication date: 1957
     format: novella
-#   - authors:
-#       - John W. Campbell  
-#     title: Who Goes There?"  
-#     publication date: 1938
-#     format: novella
-#   - authors:
-#       - Lester del Rey  
-#     title: Nerves" 
-#     publication date: 1942
-#     format: novella
-#   - authors:
-#       - Robert A. Heinlein  
-#     title: Universe" 
-#     publication date: 1941
-#     format: novella
-#   - authors:
-#       - Cyril M. Kornbluth  
-#     title: The Marching Morons"  
-#     publication date: 1951
-#     format: novella
+  - authors:
+      - John W. Campbell  
+    title: Who Goes There?"  
+    publication date: 1938
+    format: novella
+  - authors:
+      - Lester del Rey  
+    title: Nerves" 
+    publication date: 1942
+    format: novella
+  - authors:
+      - Robert A. Heinlein  
+    title: Universe" 
+    publication date: 1941
+    format: novella
+  - authors:
+      - Cyril M. Kornbluth  
+    title: The Marching Morons"  
+    publication date: 1951
+    format: novella
 #   - authors:
 #       - Henry Kuttner
 #       - C.L. Moore    
@@ -245,3 +245,10 @@ Books:
       - Philip K. Dick
 The Other Side of the Sky:
   - title: .......
+Short Stories:
+  - title: The Meeting
+    publication date: 1972
+    format: short story
+    authors:
+      - Frederik Pohl
+      - Cyril M. Kornbluth
