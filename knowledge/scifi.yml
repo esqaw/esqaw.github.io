@@ -243,8 +243,97 @@ Books:
     format: novel
     authors:
       - Philip K. Dick
+  - title: Accelerando
+    url: https://en.wikipedia.org/wiki/Accelerando
+    publication date: 2005
+    format: novel
+    authors:
+      - Charles Stross
 The Other Side of the Sky:
-  - title: .......
+  - title: The Nine Billion Names of God
+    authors:
+      - Arthur C. Clarke
+    format: short story
+    publication date: 1958
+  - title: Refugee
+    format: short story
+    authors:
+      - Arthur C. Clarke
+    publication date: 1958
+  - title: The Other Side of the Sky
+    format: vignettes
+    parts:
+      - "Special Delivery"
+      - "Feathered Friends"
+      - "Take a Deep Breath"
+      - "Freedom of Space"
+      - "Passer-by"
+      - "The Call of the Stars"
+    authors:
+      - Arthur C. Clarke
+    publication date: 1958
+  - title: The Wall of Darkness
+    format: short story
+    authors:
+      - Arthur C. Clarke
+    publication date: 1958
+  - title: Security Check
+    format: short story
+    authors:
+      - Arthur C. Clarke
+    publication date: 1958
+  - title: No Morning After
+    format: short story
+    authors:
+      - Arthur C. Clarke
+    publication date: 1958
+  - title: Venture to the Moon
+    format: vignettes
+    parts:
+      - "The Starting Line"
+      - "Robin Hood, F.R.S."
+      - "Green Fingers"
+      - "All That Glitters"
+      - "Watch This Space"
+      - "A Question of Residence"
+    authors:
+      - Arthur C. Clarke
+    publication date: 1958
+  - title: Publicity Campaign
+    format: short story
+    authors:
+      - Arthur C. Clarke
+    publication date: 1958
+  - title: All the Time in the World
+    format: short story
+    authors:
+      - Arthur C. Clarke
+    publication date: 1958
+  - title: Cosmic Casanova
+    format: short story
+    authors:
+      - Arthur C. Clarke
+    publication date: 1958
+  - title: The Star
+    format: short story
+    authors:
+      - Arthur C. Clarke
+    publication date: 1958
+  - title: Out of the Sun
+    format: short story
+    authors:
+      - Arthur C. Clarke
+    publication date: 1958
+  - title: Transience
+    format: short story
+    authors:
+      - Arthur C. Clarke
+    publication date: 1958
+  - title: The Songs of Distant Earth
+    format: short story
+    authors:
+      - Arthur C. Clarke
+    publication date: 1958
 Short Stories:
   - title: The Meeting
     publication date: 1972
@@ -252,3 +341,8 @@ Short Stories:
     authors:
       - Frederik Pohl
       - Cyril M. Kornbluth
+  - title: Farewell to the Master
+    publication date: 1940
+    format: short story
+    authors:
+      - Harry Bates
