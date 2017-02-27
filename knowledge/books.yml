@@ -56,6 +56,16 @@ Recommend:
       - “The Cold Equations” by Tom Godwin
       - “First Contact” by Murray Leinster
 "Reading History":
+  - title: Мы
+    date: 2017.02
+    url: https://ru.wikipedia.org/wiki/%D0%9C%D1%8B_(%D1%80%D0%BE%D0%BC%D0%B0%D0%BD)
+    authors:
+      - Евгений Замятин
+  - title: They'd Rather Be Right
+    date: 2017.02
+    url: https://en.wikipedia.org/wiki/They'd_Rather_Be_Right
+    comments:
+      - I liked this book even though it does not have very good reviews. I think I can contribute the liking to the fact that it's set in San Francisco, and it deals with how people would perceive something that don't understand.
   - title: Ender's Game
     date: 2017.01
     comments:
@@ -63,6 +73,9 @@ Recommend:
       - The book is full of ideas about what it takes to be a leader, how people come together in time of crisis, and how they still keep plotting against each other no matter what.
   - title: Ubik
     date: 2016.12
+    url: https://en.wikipedia.org/wiki/Ubik
+    comments:
+      - Really good novel.
   - title: The man who bridged the mist
     date: 2016.12
   - title: Beggars in Spain
@@ -73,6 +86,8 @@ Recommend:
     date: 2016.12
   - title: The Demolished Man
     date: 2016.12
+    comments:
+      - Plot is really, really good. If you like detectives this is a great novel, that you will be guessing how it will end until the very last pages.
   - title: My Name is Aram
     date: 2016.10-12
   - title: The chemical wedding
