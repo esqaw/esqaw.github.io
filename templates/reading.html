@@ -3,7 +3,7 @@
 {% block title %}{{title}}{% endblock %}
 
 {% block content %}
-  {% for block_name, books in books.items() %}
+  {% for block_name, books in block_to_books.items() %}
     <h2>{{block_name}}</h2>
     <ul>
     {% for book in books %}

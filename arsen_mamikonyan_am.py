@@ -5,6 +5,7 @@ import yaml
 
 app = Flask(__name__)
 
+
 @app.route('/')
 def index():
     projects = [
@@ -22,6 +23,7 @@ def index():
                            profiles=profiles,
                            projects=projects)
 
+
 @app.route('/reading/')
 def reading():
     books_dict = yaml.load(open('knowledge/books.yml', 'r'))
@@ -30,9 +32,10 @@ def reading():
     still_reading = books_dict['Still Reading']
     return render_template('reading.html',
                            title='Reading',
-                           books={'Currently Reading': reading,
-                                  'Still Reading': still_reading,
-                                  'I recommend': recomendations})
+                           block_to_books={'Currently Reading': reading,
+                                           'Still Reading': still_reading,
+                                           'I recommend': recomendations})
+
 
 @app.route('/reading_history/')
 def reading_history():
@@ -40,7 +43,8 @@ def reading_history():
     all_books = books_dict['Reading History']
     return render_template('reading.html',
                            title='Books I Have Read',
-                           books={'Reading History (2015)': all_books})
+                           block_to_books={
+                              'Reading History (2015-present)': all_books})
 
 
 @app.route('/photos/')
