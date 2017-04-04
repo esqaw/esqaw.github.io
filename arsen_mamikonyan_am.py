@@ -10,6 +10,11 @@ app = Flask(__name__)
 def index():
     projects = [
       {
+        'title': 'Machine Learning Course in Yerevan',
+        'description': 'Machine Leraning Course, to make people ready to work in the industry doing ML.',
+        'url': 'ml_afternoon/',
+      },
+      {
         'title': 'Hygir',
         'description': 'Help people write in Armenian',
         'url': 'http://hygir.com',
@@ -52,3 +57,15 @@ def photos():
     return render_template('photos.html',
                            title='Photos',
                            photos={})
+
+
+@app.route('/ml_afternoon/')
+def ml_afternoon():
+    return render_template('ml_lectures.html',
+                           title='Machine Learning Course',
+                           lectures={'0. Introduction': '../ml_lectures/0_introduction'})
+
+
+@app.route('/ml_lectures/<string:page_name>/')
+def render_static(page_name):
+    return render_template('ml_lectures/%s.html' % page_name)

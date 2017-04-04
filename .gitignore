@@ -2,3 +2,5 @@
 *.swo
 build
 .python3/
+
+.DS_Store
