@@ -1,5 +1,6 @@
 build
 templates
 .python3/
+*.sw[op]
 
 .DS_Store
