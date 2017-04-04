@@ -63,9 +63,9 @@ def photos():
 def ml_afternoon():
     return render_template('ml_lectures.html',
                            title='Machine Learning Course',
-                           lectures={'0. Introduction': '../ml_lectures/0_introduction'})
+                           lectures={'0. Introduction': '../ml_lectures/0_introduction/'})
 
 
-@app.route('/ml_lectures/<string:page_name>/')
-def render_static(page_name):
-    return render_template('ml_lectures/%s.html' % page_name)
+@app.route('/ml_lectures/<string:lecture_name>/')
+def ml_lectures(lecture_name):
+    return render_template('ml_lectures/%s.html' % lecture_name)
