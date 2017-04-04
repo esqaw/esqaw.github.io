@@ -1,3 +1,5 @@
 build
 templates
 .python3/
+
+.DS_Store
