@@ -63,7 +63,8 @@ def photos():
 def ml_afternoon():
     return render_template('ml_lectures.html',
                            title='Machine Learning Course',
-                           lectures={'0. Introduction': '../ml_lectures/0_introduction/'})
+                           lectures={'0. Introduction': '../ml_lectures/0_introduction/',
+                                     '1. Introduction': '../ml_lectures/1_regression/'})
 
 
 @app.route('/ml_lectures/<string:lecture_name>/')
