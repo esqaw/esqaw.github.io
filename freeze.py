@@ -7,10 +7,11 @@ freezer = Freezer(app)
 
 @freezer.register_generator
 def ml_lectures():
-    path = os.path.join(app.root_path, 'ml_lectures')
+    path = os.path.join(app.root_path, 'templates/ml_lectures/')
     files = next(os.walk(path))[2]
     for _file in files:
         if _file.endswith('.html'):
+            print(_file)
             yield {"lecture_name": _file.strip('.html')}
 
 if __name__ == '__main__':
