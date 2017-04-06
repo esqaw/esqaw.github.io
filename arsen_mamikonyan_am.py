@@ -1,6 +1,9 @@
 from flask import Flask
+import os
 from flask import render_template
 import yaml
+import string
+import re
 
 
 app = Flask(__name__)
@@ -61,10 +64,17 @@ def photos():
 
 @app.route('/ml_afternoon/')
 def ml_afternoon():
+    path = os.path.join(app.root_path, 'templates/ml_lectures/')
+    files = next(os.walk(path))[2]
+    lectures = {}
+    for _file in files:
+        if _file.endswith('.html'):
+            without_ext = os.path.splitext(_file)[0]
+            name = string.capwords(re.sub('_', '. ', without_ext))
+            lectures[name] = '../ml_lectures/{}/'.format(without_ext)
     return render_template('ml_lectures.html',
                            title='Machine Learning Course',
-                           lectures={'0. Introduction': '../ml_lectures/0_introduction/',
-                                     '1. Introduction': '../ml_lectures/1_regression/'})
+                           lectures=lectures)
 
 
 @app.route('/ml_lectures/<string:lecture_name>/')
