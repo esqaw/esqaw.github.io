@@ -12,7 +12,7 @@ def ml_lectures():
     for _file in files:
         if _file.endswith('.html'):
             print(_file)
-            yield {"lecture_name": _file.strip('.html')}
+            yield {'lecture_name': os.path.splitext(_file)[0]}
 
 if __name__ == '__main__':
     freezer.freeze()
