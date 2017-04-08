@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
@@ -11895,8 +11896,8 @@ np_arrays give you easy and elegant ways of manipulating matrices and vectors of
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">two_dimensional_comparison</span><span class="p">(</span><span class="n">num_trials</span><span class="p">,</span> <span class="n">variances</span><span class="p">,</span> <span class="n">l</span><span class="p">):</span>
-    <span class="n">beta_star</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">15</span><span class="p">,</span> <span class="mf">2.2</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">,</span> <span class="mf">4.4</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mf">3.9</span><span class="p">])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">two_dimensional_comparison</span><span class="p">(</span><span class="n">beta_star</span><span class="p">,</span> <span class="n">num_points</span><span class="p">,</span> <span class="n">num_trials</span><span class="p">,</span> <span class="n">variances</span><span class="p">,</span> <span class="n">l</span><span class="p">):</span>
+    <span class="n">beta_star</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">beta_star</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -11910,8 +11911,8 @@ np_arrays give you easy and elegant ways of manipulating matrices and vectors of
     
     <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_trials</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">var</span> <span class="ow">in</span> <span class="n">variances</span><span class="p">:</span>
-            <span class="n">X1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-            <span class="n">X2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+            <span class="n">X1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="n">num_points</span><span class="p">)</span>
+            <span class="n">X2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="n">num_points</span><span class="p">)</span>
             <span class="n">X</span> <span class="o">=</span> <span class="c1">#make X from X1 and X2.</span>
                 <span class="c1">#to do this well, use one of the vstack, hstack, column_stack, or row_stack from NumPy (see tutorial)</span>
             
@@ -11919,7 +11920,7 @@ np_arrays give you easy and elegant ways of manipulating matrices and vectors of
             <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">var</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">X</span><span class="p">])</span>
 
             <span class="n">beta_hat</span> <span class="o">=</span> <span class="n">fit_linear_regression</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
-            <span class="n">linear_results</span><span class="p">[</span><span class="n">var</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;TODO sum of squares of differences between beta_hat and beta_star&quot;&quot;&quot;</span><span class="p">)</span> 
+            <span class="n">linear_results</span><span class="p">[</span><span class="n">var</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;TODO sum of suqres of differences between beta_hat and beta_star&quot;&quot;&quot;</span><span class="p">)</span> 
             <span class="n">beta_hat_ridge</span> <span class="o">=</span> <span class="n">fit_ridge_regression</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">l</span><span class="p">)</span>
             <span class="n">ridge_results</span><span class="p">[</span><span class="n">var</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;TODO&quot;&quot;&quot;</span><span class="p">)</span>
 
@@ -11929,8 +11930,6 @@ np_arrays give you easy and elegant ways of manipulating matrices and vectors of
         <span class="n">ridge_errors</span> <span class="o">=</span> <span class="n">ridge_results</span><span class="p">[</span><span class="n">var</span><span class="p">]</span>
         <span class="n">var_ridge_err</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">var</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">ridge_errors</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">ridge_errors</span><span class="p">)))</span>
 
-    <span class="nb">print</span><span class="p">(</span><span class="n">var_linear_err</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">var_ridge_err</span><span class="p">)</span>
     
     <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">yerr</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="nb">sorted</span><span class="p">(</span><span class="n">var_linear_err</span><span class="p">))</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
@@ -11953,11 +11952,11 @@ np_arrays give you easy and elegant ways of manipulating matrices and vectors of
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">n_dimensional_comparison</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">num_trials</span><span class="p">,</span> <span class="n">variances</span><span class="p">,</span> <span class="n">l</span><span class="p">):</span>
-    <span class="n">beta_star</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">15</span><span class="p">,</span> <span class="mf">2.2</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">,</span> <span class="mf">4.4</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mf">3.9</span><span class="p">])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">n_dimensional_comparison</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">beta_star</span><span class="p">,</span> <span class="n">num_points</span><span class="p">,</span> <span class="n">num_trials</span><span class="p">,</span> <span class="n">variances</span><span class="p">,</span> <span class="n">l</span><span class="p">):</span>
+    <span class="n">beta_star</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">beta_star</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -11985,8 +11984,6 @@ np_arrays give you easy and elegant ways of manipulating matrices and vectors of
         <span class="n">ridge_errors</span> <span class="o">=</span> <span class="n">ridge_results</span><span class="p">[</span><span class="n">var</span><span class="p">]</span>
         <span class="n">var_ridge_err</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">var</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">ridge_errors</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">ridge_errors</span><span class="p">)))</span>
 
-    <span class="nb">print</span><span class="p">(</span><span class="n">var_linear_err</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">var_ridge_err</span><span class="p">)</span>
     
     <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">yerr</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="nb">sorted</span><span class="p">(</span><span class="n">var_linear_err</span><span class="p">))</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
@@ -11994,7 +11991,7 @@ np_arrays give you easy and elegant ways of manipulating matrices and vectors of
     <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">yerr</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="nb">sorted</span><span class="p">(</span><span class="n">var_ridge_err</span><span class="p">))</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;ridge&#39;</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;true error variance (sigma star squared)&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;beta error (avaraged over 100 trials)&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;beta error (avaraged over trials)&#39;</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
     
     <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;FIXME(YOUR NAME) hw2 p1&quot;</span><span class="p">)</span>
@@ -12018,11 +12015,14 @@ np_arrays give you easy and elegant ways of manipulating matrices and vectors of
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">variances</span>  <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">81</span><span class="p">,</span><span class="mi">243</span><span class="p">]</span>
-<span class="n">n_dimensional_comparison</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span> <span class="n">variances</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">beta5d1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">15</span><span class="p">,</span> <span class="mf">2.2</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">,</span> <span class="mf">4.4</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mf">3.9</span><span class="p">]</span>
+<span class="n">beta5d2</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">]</span>
+<span class="n">beta2d</span> <span class="o">=</span> <span class="p">[</span><span class="mi">15</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]</span>
+<span class="n">n_dimensional_comparison</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">beta5d1</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span> <span class="n">variances</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12040,10 +12040,19 @@ np_arrays give you easy and elegant ways of manipulating matrices and vectors of
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-5-ea4e67fb37e3&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>n_dimensional_comparison<span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">5</span><span class="ansi-blue-fg">,</span><span class="ansi-cyan-fg">100</span><span class="ansi-blue-fg">,</span> variances<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">2</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">&lt;ipython-input-12-0febd21e3ad1&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">      3</span> beta5d2 <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">0.4</span><span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">0.8</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">-</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">-</span><span class="ansi-cyan-fg">2</span><span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1.2</span><span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">0.3</span><span class="ansi-blue-fg">]</span>
+<span class="ansi-green-intense-fg ansi-bold">      4</span> beta2d <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">15</span><span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">0.2</span><span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">0.5</span><span class="ansi-blue-fg">]</span>
+<span class="ansi-green-fg">----&gt; 5</span><span class="ansi-red-fg"> </span>n_dimensional_comparison<span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">5</span><span class="ansi-blue-fg">,</span> beta5d1<span class="ansi-blue-fg">,</span><span class="ansi-cyan-fg">30</span><span class="ansi-blue-fg">,</span><span class="ansi-cyan-fg">100</span><span class="ansi-blue-fg">,</span> variances<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
 
-<span class="ansi-red-fg">NameError</span>: name &#39;n_dimensional_comparison&#39; is not defined</pre>
+<span class="ansi-green-fg">&lt;ipython-input-11-c15ce7ee416c&gt;</span> in <span class="ansi-cyan-fg">n_dimensional_comparison</span><span class="ansi-blue-fg">(n, beta_star, num_points, num_trials, variances, l)</span>
+<span class="ansi-green-intense-fg ansi-bold">     15</span>         <span class="ansi-green-fg">for</span> var <span class="ansi-green-fg">in</span> variances<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">     16</span>             <span class="ansi-red-fg">#TODO construct X</span>
+<span class="ansi-green-fg">---&gt; 17</span><span class="ansi-red-fg">             </span>Y <span class="ansi-blue-fg">=</span> np<span class="ansi-blue-fg">.</span>array<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">[</span>np<span class="ansi-blue-fg">.</span>random<span class="ansi-blue-fg">.</span>normal<span class="ansi-blue-fg">(</span>f<span class="ansi-blue-fg">(</span>x<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">,</span> np<span class="ansi-blue-fg">.</span>sqrt<span class="ansi-blue-fg">(</span>var<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">for</span> x <span class="ansi-green-fg">in</span> X<span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     18</span> 
+<span class="ansi-green-intense-fg ansi-bold">     19</span>             beta_hat <span class="ansi-blue-fg">=</span> fit_linear_regression<span class="ansi-blue-fg">(</span>X<span class="ansi-blue-fg">,</span> Y<span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;X&#39; is not defined</pre>
 </div>
 </div>
 
