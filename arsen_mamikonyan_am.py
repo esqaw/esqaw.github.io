@@ -119,4 +119,4 @@ def ml_afternoon_lectures(lecture_name):
 
 @app.route('/ml_evening/<string:lecture_name>/')
 def ml_evening_lectures(lecture_name):
-    return render_template('ml_afternoon/%s.html' % lecture_name)
+    return render_template('ml_evening/%s.html' % lecture_name)

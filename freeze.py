@@ -11,6 +11,7 @@ def ml_afternoon_lectures():
     files = next(os.walk(path))[2]
     for _file in files:
         if _file.endswith('.html'):
+            print('afternoon', _file)
             yield {'lecture_name': os.path.splitext(_file)[0]}
 
 
@@ -20,7 +21,7 @@ def ml_evening_lectures():
     files = next(os.walk(path))[2]
     for _file in files:
         if _file.endswith('.html'):
-            print(_file)
+            print('evening', _file)
             yield {'lecture_name': os.path.splitext(_file)[0]}
 
 
