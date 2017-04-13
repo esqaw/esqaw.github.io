@@ -101,6 +101,7 @@ def ml_evening():
             if name.endswith('.slides'):
                 slides[name] = '../ml_evening/{}/'.format(without_ext)
             elif name.lower().startswith('homework'):
+                print(_file)
                 homeworks[name] = '../ml_evening/{}/'.format(without_ext)
             elif name.lower().startswith('practical'):
                 practicals[re.sub('ractical', '', name)] = '../ml_evening/{}/'.format(without_ext)

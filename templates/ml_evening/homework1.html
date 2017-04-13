@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>4_logistic_regression</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>homework1</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -11774,99 +11774,13 @@ div#notebook {
 <body>
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
-<h1 class="title custom_title">Machine Learning</h1>
-<h2>Lecture 4: Logistic Regression</h2>
-<h2 class="author">by Arsen Mamikonyan</h2>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Results">Results<a class="anchor-link" href="#Results">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<table>
-<thead><tr>
-<th>Name</th>
-<th>Score</th>
-<th style="text-align:center">Num Features</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Razmik &amp; Hakob K.</td>
-<td>30,466.9</td>
-<td style="text-align:center">529</td>
-</tr>
-<tr>
-<td>Vardges</td>
-<td>31,508.2</td>
-<td style="text-align:center">61</td>
-</tr>
-<tr>
-<td>Karlen</td>
-<td>32,061.0</td>
-<td style="text-align:center">16</td>
-</tr>
-<tr>
-<td>Mary</td>
-<td>32,903.6</td>
-<td style="text-align:center">82</td>
-</tr>
-<tr>
-<td>Daniel</td>
-<td>33,231.9</td>
-<td style="text-align:center">12</td>
-</tr>
-<tr>
-<td>Garik &amp; Aram</td>
-<td>33,232.9</td>
-<td style="text-align:center">42</td>
-</tr>
-<tr>
-<td>Armen</td>
-<td>33,807.1</td>
-<td style="text-align:center">24</td>
-</tr>
-<tr>
-<td>Hakob A.</td>
-<td>34,189.1</td>
-<td style="text-align:center">12</td>
-</tr>
-<tr>
-<td>Hayk</td>
-<td>34,259.7</td>
-<td style="text-align:center">41</td>
-</tr>
-<tr>
-<td>Mariam</td>
-<td>38,131.2</td>
-<td style="text-align:center">28</td>
-</tr>
-<tr>
-<td>Anush</td>
-<td>38,593.5</td>
-<td style="text-align:center">9</td>
-</tr>
-<tr>
-<td>Elen</td>
-<td>39,445.8</td>
-<td style="text-align:center">9</td>
-</tr>
-<tr>
-<td>Vazgen</td>
-<td>40,945.5</td>
-<td style="text-align:center">8</td>
-</tr>
-</tbody>
-</table>
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Homework-1">Homework 1<a class="anchor-link" href="#Homework-1">&#182;</a></h1><h3 id="Due-April-15,-23:59">Due April 15, 23:59<a class="anchor-link" href="#Due-April-15,-23:59">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -11875,7 +11789,8 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Solution">Solution<a class="anchor-link" href="#Solution">&#182;</a></h1>
+<p>Download <a href="/static/ml_evening/homeworks/homework1.py">homework1.py</a>, and implement <code>fit_linear_regression</code> function that takes $X$ matrix and $Y$ column vector, and return $\hat{\beta}$ column vector for the Ordinary Least Squares fit (see lecture1)</p>
+
 </div>
 </div>
 </div>
@@ -11884,59 +11799,14 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">featurize</span><span class="p">(</span><span class="n">apartment</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">fit_linear_regression</span><span class="p">(</span><span class="n">data_matrix</span><span class="p">,</span> <span class="n">response_vector</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    :param apartment: Apartment DataFrame row (a dictionary like object)</span>
-<span class="sd">    :return: (x, y) tuple, where x is a numpy vector, and y is a number</span>
+<span class="sd">    :param data_matrix: A numpy matrix, i.e. array of shape (N, d+1),</span>
+<span class="sd">            where each row is a data element (X)</span>
+<span class="sd">    :param response_vector: A numpy array of shape (N,) of responses</span>
+<span class="sd">            for each of the rows (y)</span>
+<span class="sd">    :return: A vector containing the hyperplane equation (beta)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span>
-            <span class="n">apartment</span><span class="p">[</span><span class="s1">&#39;area&#39;</span><span class="p">],</span>
-            <span class="n">apartment</span><span class="p">[</span><span class="s1">&#39;area&#39;</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span><span class="p">,</span>
-            <span class="n">apartment</span><span class="p">[</span><span class="s1">&#39;ceiling_height&#39;</span><span class="p">],</span>
-            <span class="n">apartment</span><span class="p">[</span><span class="s1">&#39;num_rooms&#39;</span><span class="p">],</span>
-            <span class="n">apartment</span><span class="p">[</span><span class="s1">&#39;num_rooms&#39;</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span><span class="p">,</span>
-            <span class="n">apartment</span><span class="p">[</span><span class="s1">&#39;num_rooms&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">apartment</span><span class="p">[</span><span class="s1">&#39;area&#39;</span><span class="p">],</span>
-            <span class="mi">1</span> <span class="k">if</span> <span class="n">apartment</span><span class="p">[</span><span class="s1">&#39;building_type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;stone&#39;</span> <span class="k">else</span> <span class="mi">0</span><span class="p">,</span>
-            <span class="mi">1</span> <span class="k">if</span> <span class="n">apartment</span><span class="p">[</span><span class="s1">&#39;building_type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;other&#39;</span> <span class="k">else</span> <span class="mi">0</span><span class="p">,</span>
-            <span class="mi">1</span> <span class="k">if</span> <span class="n">apartment</span><span class="p">[</span><span class="s1">&#39;building_type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;panel&#39;</span> <span class="k">else</span> <span class="mi">0</span><span class="p">,</span>
-            <span class="mi">1</span> <span class="k">if</span> <span class="n">apartment</span><span class="p">[</span><span class="s1">&#39;building_type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;monolit&#39;</span> <span class="k">else</span> <span class="mi">0</span><span class="p">,</span>
-            <span class="mi">1</span> <span class="k">if</span> <span class="n">apartment</span><span class="p">[</span><span class="s1">&#39;district&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Achapnyak&#39;</span> <span class="k">else</span> <span class="mi">0</span><span class="p">,</span>
-            <span class="mi">1</span> <span class="k">if</span> <span class="n">apartment</span><span class="p">[</span><span class="s1">&#39;district&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Arabkir&#39;</span> <span class="k">else</span> <span class="mi">0</span><span class="p">,</span>
-            <span class="mi">1</span> <span class="k">if</span> <span class="n">apartment</span><span class="p">[</span><span class="s1">&#39;district&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Avan&#39;</span> <span class="k">else</span> <span class="mi">0</span><span class="p">,</span>
-            <span class="mi">1</span> <span class="k">if</span> <span class="n">apartment</span><span class="p">[</span><span class="s1">&#39;district&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Center&#39;</span> <span class="k">else</span> <span class="mi">0</span><span class="p">,</span>
-            <span class="mi">1</span> <span class="k">if</span> <span class="n">apartment</span><span class="p">[</span><span class="s1">&#39;district&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Davtashen&#39;</span> <span class="k">else</span> <span class="mi">0</span><span class="p">,</span>
-            <span class="mi">1</span> <span class="k">if</span> <span class="n">apartment</span><span class="p">[</span><span class="s1">&#39;district&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Erebuni&#39;</span> <span class="k">else</span> <span class="mi">0</span><span class="p">,</span>
-            <span class="mi">1</span> <span class="k">if</span> <span class="n">apartment</span><span class="p">[</span><span class="s1">&#39;district&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Malatia-Sebastia&#39;</span> <span class="k">else</span> <span class="mi">0</span><span class="p">,</span>
-            <span class="mi">1</span> <span class="k">if</span> <span class="n">apartment</span><span class="p">[</span><span class="s1">&#39;district&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Nor Norq&#39;</span> <span class="k">else</span> <span class="mi">0</span><span class="p">,</span>
-            <span class="mi">1</span> <span class="k">if</span> <span class="n">apartment</span><span class="p">[</span><span class="s1">&#39;district&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Norq Marash&#39;</span> <span class="k">else</span> <span class="mi">0</span><span class="p">,</span>
-            <span class="mi">1</span> <span class="k">if</span> <span class="n">apartment</span><span class="p">[</span><span class="s1">&#39;district&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Nubarashen&#39;</span> <span class="k">else</span> <span class="mi">0</span><span class="p">,</span>
-            <span class="mi">1</span> <span class="k">if</span> <span class="n">apartment</span><span class="p">[</span><span class="s1">&#39;district&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Qanaqer-Zeytun&#39;</span> <span class="k">else</span> <span class="mi">0</span><span class="p">,</span>
-            <span class="mi">1</span> <span class="k">if</span> <span class="n">apartment</span><span class="p">[</span><span class="s1">&#39;district&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Shengavit&#39;</span> <span class="k">else</span> <span class="mi">0</span><span class="p">,</span>
-            <span class="mi">1</span> <span class="k">if</span> <span class="n">apartment</span><span class="p">[</span><span class="s1">&#39;district&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Vahagni district&#39;</span> <span class="k">else</span> <span class="mi">0</span><span class="p">,</span>
-            <span class="n">apartment</span><span class="p">[</span><span class="s1">&#39;floor&#39;</span><span class="p">],</span>
-            <span class="n">apartment</span><span class="p">[</span><span class="s1">&#39;max_floor&#39;</span><span class="p">],</span>
-            <span class="mi">1</span> <span class="k">if</span> <span class="n">apartment</span><span class="p">[</span><span class="s1">&#39;floor&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">apartment</span><span class="p">[</span><span class="s1">&#39;max_floor&#39;</span><span class="p">]</span> <span class="k">else</span> <span class="mi">0</span><span class="p">,</span>
-            <span class="mi">1</span> <span class="k">if</span> <span class="n">apartment</span><span class="p">[</span><span class="s1">&#39;floor&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="mi">0</span><span class="p">,</span>
-            <span class="n">apartment</span><span class="p">[</span><span class="s1">&#39;num_bathrooms&#39;</span><span class="p">],</span>
-            <span class="mi">1</span> <span class="k">if</span> <span class="n">apartment</span><span class="p">[</span><span class="s1">&#39;condition&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;newly repaired&#39;</span> <span class="k">else</span> <span class="mi">0</span><span class="p">,</span>
-            <span class="mi">1</span> <span class="k">if</span> <span class="n">apartment</span><span class="p">[</span><span class="s1">&#39;condition&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;good&#39;</span> <span class="k">else</span> <span class="mi">0</span><span class="p">,</span>
-            <span class="mi">1</span> <span class="k">if</span> <span class="n">apartment</span><span class="p">[</span><span class="s1">&#39;condition&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;zero condition&#39;</span> <span class="k">else</span> <span class="mi">0</span><span class="p">,</span>
-            <span class="p">],</span> <span class="n">apartment</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]</span>
 </pre></div>
 
 </div>
@@ -11944,57 +11814,28 @@ div#notebook {
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Afterwards, impolement <code>plot_fitted_line</code> function, that takes $\beta_0, \beta_1, X, Y$ and plots a scatter plot of the data, and the line $y = \beta_0 + \beta_1 x$</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">cross_validate</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">fitter</span><span class="p">,</span> <span class="n">folds</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">plot_fitted_line</span><span class="p">(</span><span class="n">b0</span><span class="p">,</span> <span class="n">b1</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">username</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    :param X: A numpy matrix, where each row is a data element (X)</span>
-<span class="sd">    :param Y: A numpy vector of responses for each of the rows (y)</span>
-<span class="sd">    :param fitter: A function that takes X, Y as parameters and returns beta</span>
-<span class="sd">    :param folds: number of cross validation folds (parts)</span>
-<span class="sd">    :return: list of corss-validation scores</span>
+<span class="sd">    :param b0: Intersept of line to plot</span>
+<span class="sd">    :param b1: Slope of the line to plot</span>
+<span class="sd">    :param X: An array of length N containing x coordinates of points</span>
+<span class="sd">    :param Y: An array of length N containing y coordinates of points</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">scores</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">folds</span><span class="p">):</span>
-        <span class="c1"># Take test_X and test_Y to be every fold&#39;th element, starting from k.</span>
-        <span class="n">test_X</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">k</span><span class="p">::</span><span class="n">folds</span><span class="p">]</span>
-        <span class="n">test_Y</span> <span class="o">=</span> <span class="n">Y</span><span class="p">[</span><span class="n">k</span><span class="p">::</span><span class="n">folds</span><span class="p">]</span>
-        <span class="c1"># Take train_X and train_Y to be everything that is not in test.</span>
-        <span class="n">train_X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">x</span> <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="k">if</span> <span class="p">(</span><span class="n">j</span> <span class="o">%</span> <span class="n">folds</span> <span class="o">!=</span> <span class="n">k</span><span class="p">)])</span>
-        <span class="n">train_Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">y</span> <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span> <span class="k">if</span> <span class="p">(</span><span class="n">j</span> <span class="o">%</span> <span class="n">folds</span> <span class="o">!=</span> <span class="n">k</span><span class="p">)])</span>
-        <span class="c1"># Calculate beta using the regressor (i.e. `fitter`).</span>
-        <span class="n">beta</span> <span class="o">=</span> <span class="n">fitter</span><span class="p">(</span><span class="n">train_X</span><span class="p">,</span> <span class="n">train_Y</span><span class="p">)</span>
-        <span class="c1"># Calculate the error vector for the test data.</span>
-        <span class="n">e</span> <span class="o">=</span> <span class="n">test_X</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">beta</span><span class="p">)</span> <span class="o">-</span> <span class="n">test_Y</span>
-        <span class="c1"># Loss = e^T e, and append it to scores.</span>
-        <span class="n">scores</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">test_Y</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">scores</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
-    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">csv</span><span class="p">)</span>
-    <span class="c1"># Convert `df` into features (X) and responses (Y) using featurize</span>
-    <span class="n">X_and_Y</span> <span class="o">=</span> <span class="p">[</span><span class="n">my_featurize</span><span class="p">(</span><span class="n">row</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">()]</span>
-    <span class="n">X_array</span><span class="p">,</span> <span class="n">Y_array</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">X_and_Y</span><span class="p">)</span>
-    <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">X_array</span><span class="p">)</span>
-    <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">Y_array</span><span class="p">)</span>
-    <span class="n">scores</span> <span class="o">=</span> <span class="n">cross_validate</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">fit_ridge_regression</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:,}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">scores</span><span class="p">))))</span>
-    <span class="n">beta</span> <span class="o">=</span> <span class="n">fit_ridge_regression</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">beta</span><span class="p">))</span>
 </pre></div>
 
 </div>
@@ -12007,16 +11848,16 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Python">Python<a class="anchor-link" href="#Python">&#182;</a></h1><ol>
-<li>Your files should be self contained.<ul>
-<li><code>import</code>'s should be included in the begining of the file.</li>
-</ul>
-</li>
-<li>Python is a scripting language, so anything in your file will be executed when imported.<ul>
-<li>use <code>if __name__ == '__main__'</code></li>
-</ul>
-</li>
-</ol>
+<h3 id="Here-is-an-example-plot">Here is an example plot<a class="anchor-link" href="#Here-is-an-example-plot">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="/static/ml_evening/homeworks/homework1.arsen.png" style="width: 50%"></p>
 
 </div>
 </div>
@@ -12026,7 +11867,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Scribes?">Scribes?<a class="anchor-link" href="#Scribes?">&#182;</a></h1>
+<h1 id="Submitting-the-homework">Submitting the homework<a class="anchor-link" href="#Submitting-the-homework">&#182;</a></h1>
 </div>
 </div>
 </div>
@@ -12035,20 +11876,9 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Last-Time">Last Time<a class="anchor-link" href="#Last-Time">&#182;</a></h1><h2 id="Perceptron-decision-function">Perceptron decision function<a class="anchor-link" href="#Perceptron-decision-function">&#182;</a></h2>$$ f\left(x,\beta\right)=sign\left(\beta^Tx\right) $$
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Perceptron-update-algorithm">Perceptron update algorithm<a class="anchor-link" href="#Perceptron-update-algorithm">&#182;</a></h2>
-<pre><code>beta = (0, 0, ..., 0)
-for i in range(N):
-    if y[i] != F(x[i], beta):
-        beta = beta + y[i] * x[i]</code></pre>
+<p>Make sure your script does not through <code>AssertionError</code>'s when you run</p>
+<p><code>python3 homework1.py test</code></p>
+<p>i.e. you have implemented everything with correct specifications.</p>
 
 </div>
 </div>
@@ -12058,283 +11888,7 @@ for i in range(N):
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Number-of-errors">Number of errors<a class="anchor-link" href="#Number-of-errors">&#182;</a></h2>$$ k\leq\frac{R^2||\beta^*||^2}{\gamma^2} $$
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Today:-Logistic-Regression">Today: Logistic Regression<a class="anchor-link" href="#Today:-Logistic-Regression">&#182;</a></h1><h3 id="dealing-with-the-case-when-points-are-not-separable">dealing with the case when points are not separable<a class="anchor-link" href="#dealing-with-the-case-when-points-are-not-separable">&#182;</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;presentation_data/lec4/2gaussians-50.csv&#39;</span><span class="p">)</span>
-<span class="n">colors</span> <span class="o">=</span> <span class="p">{</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;red&#39;</span><span class="p">}</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">()</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">klass</span> <span class="ow">in</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]:</span>
-    <span class="n">pp</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">klass</span><span class="p">]</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">pp</span><span class="p">[</span><span class="s1">&#39;x2&#39;</span><span class="p">],</span> <span class="n">pp</span><span class="p">[</span><span class="s1">&#39;x1&#39;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">klass</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">klass</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">3.8</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;presentation_data/lec4/perceptron_data.png&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">320</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="/static/ml_afternoon/presentation_data/lec4/perceptron_data.png" style="width: 90%"></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Modeling">Modeling<a class="anchor-link" href="#Modeling">&#182;</a></h1>$$ h(x) = \theta(\beta^T x) $$$$ \theta(x) = \frac{e^x}{1 + e^x} $$
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">logit</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span> <span class="mf">1.</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x_range</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
-<span class="n">y_values</span> <span class="o">=</span> <span class="p">[</span><span class="n">logit</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">x_range</span><span class="p">]</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_range</span><span class="p">,</span> <span class="n">y_values</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-
-
-<div class="output_png output_subarea ">
-<img src="data:image/png;base64,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
-"
->
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="/static/ml_afternoon/presentation_data/lec4/gradient_descent.png" style="width: 90%"></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="References">References<a class="anchor-link" href="#References">&#182;</a></h1><p><a href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-867-machine-learning-fall-2006/lecture-notes/lec4.pdf">Starting from page 2 - Logistic regression</a></p>
-
+<h3 id="Submit-your-code-and-homework1.YOURNAME.png-file-in-#homework1-channel-on-slack">Submit your code and <code>homework1.YOURNAME.png</code> file in <code>#homework1</code> channel on slack<a class="anchor-link" href="#Submit-your-code-and-homework1.YOURNAME.png-file-in-#homework1-channel-on-slack">&#182;</a></h3>
 </div>
 </div>
 </div>
