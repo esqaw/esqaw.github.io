@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>3_linear_classifier</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>homework1</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -11774,18 +11774,13 @@ div#notebook {
 <body>
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
-<h1 class="title custom_title">Machine Learning</h1>
-<h2>Lecture 3: Perceptron, Linear Classification</h2>
-<h2 class="author">by Arsen Mamikonyan</h2>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Classification">Classification<a class="anchor-link" href="#Classification">&#182;</a></h1><p>from Wikipedia</p>
-<blockquote><p>Classification is the problem of identifying to which of a set of categories (sub-populations) a new observation belongs, on the basis of a training set of data containing observations (or instances) whose category membership is known.</p>
-</blockquote>
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Homework-1">Homework 1<a class="anchor-link" href="#Homework-1">&#182;</a></h1><h3 id="Due-April-15,-23:59">Due April 15, 23:59<a class="anchor-link" href="#Due-April-15,-23:59">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -11794,69 +11789,24 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="https://lh3.googleusercontent.com/K3-D1VX2E3fWD4rHRoqqmogPU-a_SV48lDideMH3bKSGNUE0Z-UMP0R0HGlAL2I=w305-h458" style="width: 90%"></p>
+<p>Download <a href="/static/ml_evening/homeworks/homework1.py">homework1.py</a>, and implement <code>fit_linear_regression</code> function that takes $X$ matrix and $Y$ column vector, and return $\hat{\beta}$ column vector for the Ordinary Least Squares fit (see lecture1)</p>
 
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="https://camo.githubusercontent.com/7dcd58d29ba1bee2de71c5ae1a8e0c75b3893d99/68747470733a2f2f706c6f6e2e696f2f66696c65732f353863666237313731623132636530303031326264366266" style="widht=90%"></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Classification-types">Classification types<a class="anchor-link" href="#Classification-types">&#182;</a></h1><ol>
-<li>Binary (distinguishing between 2 labels.)</li>
-<li>Multi-class (distinguishing between &gt;2 different labels.)</li>
-</ol>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Perceptron">Perceptron<a class="anchor-link" href="#Perceptron">&#182;</a></h1><p>Perceptron is a binary classifier</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-$$ \hat{y} = sign (\hat{\beta} \cdot x) $$
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[48]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;presentation_data/lec3/2gaussians-50.csv&#39;</span><span class="p">)</span>
-<span class="n">colors</span> <span class="o">=</span> <span class="p">{</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;red&#39;</span><span class="p">}</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">()</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">klass</span> <span class="ow">in</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]:</span>
-    <span class="n">pp</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">klass</span><span class="p">]</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">pp</span><span class="p">[</span><span class="s1">&#39;x2&#39;</span><span class="p">],</span> <span class="n">pp</span><span class="p">[</span><span class="s1">&#39;x1&#39;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">klass</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">klass</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">3.8</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;presentation_data/lec3/perceptron_data.png&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">320</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">fit_linear_regression</span><span class="p">(</span><span class="n">data_matrix</span><span class="p">,</span> <span class="n">response_vector</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    :param data_matrix: A numpy matrix, i.e. array of shape (N, d+1),</span>
+<span class="sd">            where each row is a data element (X)</span>
+<span class="sd">    :param response_vector: A numpy array of shape (N,) of responses</span>
+<span class="sd">            for each of the rows (y)</span>
+<span class="sd">    :return: A vector containing the hyperplane equation (beta)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 </pre></div>
 
 </div>
@@ -11869,212 +11819,76 @@ $$ \hat{y} = sign (\hat{\beta} \cdot x) $$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="/static/ml_afternoon/presentation_data/lec3/perceptron_data.png" style="width: 90%"></p>
+<p>Afterwards, impolement <code>plot_fitted_line</code> function, that takes $\beta_0, \beta_1, X, Y$ and plots a scatter plot of the data, and the line $y = \beta_0 + \beta_1 x$</p>
 
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Fitted-Perceptron">Fitted Perceptron<a class="anchor-link" href="#Fitted-Perceptron">&#182;</a></h2><p><img src="/static/ml_afternoon/presentation_data/lec3/fitted_perceptron.png" style="width: 90%"></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="1st-Error">1st Error<a class="anchor-link" href="#1st-Error">&#182;</a></h3><p><img src="/static/ml_afternoon/presentation_data/lec3/perceptron_alg_1.png" style="width: 90%"></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="2nd-Error">2nd Error<a class="anchor-link" href="#2nd-Error">&#182;</a></h3><p><img src="/static/ml_afternoon/presentation_data/lec3/perceptron_alg_2.png" style="width: 90%"></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div>
-<img src="/static/ml_afternoon/presentation_data/lec3/perceptron_alg_3.png" style="width: 90%">
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div>
-<img src="/static/ml_afternoon/presentation_data/lec3/perceptron_alg_4.png" style="width: 90%">
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div>
-<img src="/static/ml_afternoon/presentation_data/lec3/perceptron_alg_5.png" style="width: 90%">
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div>
-<img src="/static/ml_afternoon/presentation_data/lec3/perceptron_alg_6.png" style="width: 90%">
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div>
-<img src="/static/ml_afternoon/presentation_data/lec3/perceptron_alg_7.png" style="width: 90%">
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div>
-<img src="/static/ml_afternoon/presentation_data/lec3/perceptron_alg_8.png" style="width: 90%">
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div>
-<img src="/static/ml_afternoon/presentation_data/lec3/perceptron_alg_9.png" style="width: 90%">
-</div>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[40]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;x2&#39;</span><span class="p">,</span> <span class="s1">&#39;x1&#39;</span><span class="p">]])</span>
-<span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">])</span>
-
-<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">beta</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">beta</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-
-
-<span class="n">beta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">colors</span><span class="p">),))</span>
-<span class="n">curve_x1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">5.1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
-<span class="n">counter</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">y</span> <span class="o">!=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">beta</span><span class="p">):</span>
-            <span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
-            <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">()</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
-            <span class="k">for</span> <span class="n">klass</span> <span class="ow">in</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]:</span>
-                <span class="n">pp</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">klass</span><span class="p">]</span>
-                <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">pp</span><span class="p">[</span><span class="s1">&#39;x2&#39;</span><span class="p">],</span> <span class="n">pp</span><span class="p">[</span><span class="s1">&#39;x1&#39;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">klass</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">klass</span><span class="p">))</span>
-            <span class="n">curve_x2</span> <span class="o">=</span> <span class="o">-</span><span class="n">beta</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="n">beta</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">curve_x1</span>
-            <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">curve_x1</span><span class="p">,</span> <span class="n">curve_x2</span><span class="p">)</span>
-            <span class="n">beta</span> <span class="o">+=</span> <span class="n">y</span> <span class="o">*</span> <span class="n">x</span>   <span class="c1"># Make calculations</span>
-            <span class="n">curve_x2</span> <span class="o">=</span> <span class="o">-</span><span class="n">beta</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="n">beta</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">curve_x1</span>
-            <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">curve_x1</span><span class="p">,</span> <span class="n">curve_x2</span><span class="p">,</span> <span class="s1">&#39;r--&#39;</span><span class="p">)</span>
-            <span class="n">plt</span><span class="o">.</span><span class="n">gcf</span><span class="p">()</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">add_artist</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">Circle</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">.</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;purple&#39;</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
-            <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">()</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">beta</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="mi">10</span><span class="p">,</span> <span class="n">beta</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="mi">10</span><span class="p">,</span> <span class="n">head_width</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">head_length</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">fc</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">ec</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
-            <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">)</span>
-            <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">3.8</span><span class="p">)</span>
-            <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;presentation_data/lec3/perceptron_alg_</span><span class="si">{}</span><span class="s2">.png&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">counter</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">320</span><span class="p">)</span>
-            <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
-            <span class="nb">print</span><span class="p">(</span><span class="n">beta</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">()</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">klass</span> <span class="ow">in</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]:</span>
-    <span class="n">pp</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">klass</span><span class="p">]</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">pp</span><span class="p">[</span><span class="s1">&#39;x2&#39;</span><span class="p">],</span> <span class="n">pp</span><span class="p">[</span><span class="s1">&#39;x1&#39;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">klass</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">klass</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">()</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">beta</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="mi">10</span><span class="p">,</span> <span class="n">beta</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="mi">10</span><span class="p">,</span> <span class="n">head_width</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">head_length</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">fc</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">ec</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
-<span class="n">curve_x2</span> <span class="o">=</span> <span class="o">-</span><span class="n">beta</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="n">beta</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">curve_x1</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">curve_x1</span><span class="p">,</span> <span class="n">curve_x2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">3.8</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;presentation_data/lec3/fitted_perceptron.png&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">320</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">plot_fitted_line</span><span class="p">(</span><span class="n">b0</span><span class="p">,</span> <span class="n">b1</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">username</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    :param b0: Intersept of line to plot</span>
+<span class="sd">    :param b1: Slope of the line to plot</span>
+<span class="sd">    :param X: An array of length N containing x coordinates of points</span>
+<span class="sd">    :param Y: An array of length N containing y coordinates of points</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 </pre></div>
 
 </div>
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/ipykernel/__main__.py:19: RuntimeWarning: invalid value encountered in double_scalars
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[-3.01647171 -1.66748525]
-[-3.23877627  1.22751978]
-[-2.47625289  2.66149422]
-[-5.66460581 -0.5084355 ]
-[-5.3704307   1.60241967]
-[-4.10645677  5.13357465]
-[-8.40948626  1.44885201]
-[-7.96882494  3.50170896]
-[-7.20630156  4.93568341]
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="References">References<a class="anchor-link" href="#References">&#182;</a></h1><p><a href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-867-machine-learning-fall-2006/lecture-notes/lec1.pdf">algorithm</a>
-<a href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-867-machine-learning-fall-2006/lecture-notes/lec2.pdf">analysis</a></p>
+<h3 id="Here-is-an-example-plot">Here is an example plot<a class="anchor-link" href="#Here-is-an-example-plot">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="/static/ml_evening/homeworks/homework1.arsen.png" style="width: 50%"></p>
 
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Submitting-the-homework">Submitting the homework<a class="anchor-link" href="#Submitting-the-homework">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Make sure your script does not through <code>AssertionError</code>'s when you run</p>
+<p><code>python3 homework1.py test</code></p>
+<p>i.e. you have implemented everything with correct specifications.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Submit-your-code-and-homework1.YOURNAME.png-file-in-#homework1-channel-on-slack">Submit your code and <code>homework1.YOURNAME.png</code> file in <code>#homework1</code> channel on slack<a class="anchor-link" href="#Submit-your-code-and-homework1.YOURNAME.png-file-in-#homework1-channel-on-slack">&#182;</a></h3>
 </div>
 </div>
 </div>
