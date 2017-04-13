@@ -70,7 +70,8 @@ def ml_afternoon():
     for _file in files:
         if _file.endswith('.html'):
             without_ext = os.path.splitext(_file)[0]
-            name = string.capwords(re.sub('_', '. ', without_ext))
+            name = string.capwords(re.sub('_', ' ', without_ext))
+            name = re.sub('(\d+) ', r'\1. ', name)
             if name.endswith('.slides'):
                 slides[name] = '../ml_afternoon/{}/'.format(without_ext)
             elif name.lower().startswith('homework'):
@@ -95,7 +96,8 @@ def ml_evening():
     for _file in files:
         if _file.endswith('.html'):
             without_ext = os.path.splitext(_file)[0]
-            name = string.capwords(re.sub('_', '. ', without_ext))
+            name = string.capwords(re.sub('_', ' ', without_ext))
+            name = re.sub('(\d+) ', r'\1. ', name)
             if name.endswith('.slides'):
                 slides[name] = '../ml_evening/{}/'.format(without_ext)
             elif name.lower().startswith('homework'):
