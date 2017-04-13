@@ -77,6 +77,21 @@ def ml_afternoon():
                            lectures=lectures)
 
 
+@app.route('/ml_evening/')
+def ml_evening():
+    path = os.path.join(app.root_path, 'templates/ml_evening/')
+    files = next(os.walk(path))[2]
+    lectures = {}
+    for _file in files:
+        if _file.endswith('.html'):
+            without_ext = os.path.splitext(_file)[0]
+            name = string.capwords(re.sub('_', '. ', without_ext))
+            lectures[name] = '../ml_evening/{}/'.format(without_ext)
+    return render_template('ml_evening.html',
+                           title='Machine Learning Course',
+                           lectures=lectures)
+
+
 @app.route('/ml_lectures/<string:lecture_name>/')
 def ml_lectures(lecture_name):
     return render_template('ml_lectures/%s.html' % lecture_name)
