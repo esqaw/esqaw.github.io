@@ -64,34 +64,59 @@ def photos():
 
 @app.route('/ml_afternoon/')
 def ml_afternoon():
-    path = os.path.join(app.root_path, 'templates/ml_lectures/')
+    path = os.path.join(app.root_path, 'templates/ml_afternoon/')
     files = next(os.walk(path))[2]
-    lectures = {}
+    lectures, slides, homeworks, practicals = {}, {}, {}, {}
     for _file in files:
         if _file.endswith('.html'):
             without_ext = os.path.splitext(_file)[0]
             name = string.capwords(re.sub('_', '. ', without_ext))
-            lectures[name] = '../ml_lectures/{}/'.format(without_ext)
-    return render_template('ml_lectures.html',
+            if name.endswith('.slides'):
+                slides[name] = '../ml_afternoon/{}/'.format(without_ext)
+            elif name.lower().startswith('homework'):
+                homeworks[name] = '../ml_afternoon/{}/'.format(without_ext)
+            elif name.lower().startswith('practical'):
+                practicals[re.sub('ractical', '', name)] = '../ml_afternoon/{}/'.format(without_ext)
+            else:
+                lectures[name] = '../ml_afternoon/{}/'.format(without_ext)
+    return render_template('ml_afternoon.html',
                            title='Machine Learning Course',
-                           lectures=lectures)
+                           lectures=sorted(lectures.items()),
+                           homeworks=sorted(homeworks.items()),
+                           practicals=sorted(practicals.items()),
+                           slides=sorted(slides.items()))
 
 
 @app.route('/ml_evening/')
 def ml_evening():
     path = os.path.join(app.root_path, 'templates/ml_evening/')
     files = next(os.walk(path))[2]
-    lectures = {}
+    lectures, slides, homeworks, practicals = {}, {}, {}, {}
     for _file in files:
         if _file.endswith('.html'):
             without_ext = os.path.splitext(_file)[0]
             name = string.capwords(re.sub('_', '. ', without_ext))
-            lectures[name] = '../ml_evening/{}/'.format(without_ext)
+            if name.endswith('.slides'):
+                slides[name] = '../ml_evening/{}/'.format(without_ext)
+            elif name.lower().startswith('homework'):
+                homeworks[name] = '../ml_evening/{}/'.format(without_ext)
+            elif name.lower().startswith('practical'):
+                practicals[re.sub('ractical', '', name)] = '../ml_evening/{}/'.format(without_ext)
+            else:
+                lectures[name] = '../ml_evening/{}/'.format(without_ext)
     return render_template('ml_evening.html',
                            title='Machine Learning Course',
-                           lectures=lectures)
+                           lectures=sorted(lectures.items()),
+                           homeworks=sorted(homeworks.items()),
+                           practicals=sorted(practicals.items()),
+                           slides=sorted(slides.items()))
 
 
-@app.route('/ml_lectures/<string:lecture_name>/')
-def ml_lectures(lecture_name):
-    return render_template('ml_lectures/%s.html' % lecture_name)
+@app.route('/ml_afternoon/<string:lecture_name>/')
+def ml_afternoon_lectures(lecture_name):
+    return render_template('ml_afternoon/%s.html' % lecture_name)
+
+
+@app.route('/ml_evening/<string:lecture_name>/')
+def ml_evening_lectures(lecture_name):
+    return render_template('ml_afternoon/%s.html' % lecture_name)
