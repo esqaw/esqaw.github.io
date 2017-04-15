@@ -6,10 +6,10 @@ Implement polynomial_featurize(X, degree)
 Implement TODO's
 
 Example Usage:
-    python3 homework1.py --user arsen
+    python3 homework2.py --user arsen
 
 Make sure to test before submiting:
-    python3 homework1.py test
+    python3 homework2.py test
 """
 from __future__ import print_function  # If you want to run with python2
 import argparse
