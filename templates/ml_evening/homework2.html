@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>homework1</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>homework2</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -11778,46 +11778,41 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Homework-1">Homework 1<a class="anchor-link" href="#Homework-1">&#182;</a></h1><h3 id="Due-April-15,-23:59">Due April 15, 23:59<a class="anchor-link" href="#Due-April-15,-23:59">&#182;</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Download <a href="homeworks/homework1.py">homework1.py</a>, and implement <code>fit_linear_regression</code> function that takes $X$ matrix and $Y$ column vector, and return $\hat{\beta}$ column vector for the Ordinary Least Squares fit (see lecture1)</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">fit_linear_regression</span><span class="p">(</span><span class="n">data_matrix</span><span class="p">,</span> <span class="n">response_vector</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    :param data_matrix: A numpy matrix, i.e. array of shape (N, d+1),</span>
-<span class="sd">            where each row is a data element (X)</span>
-<span class="sd">    :param response_vector: A numpy array of shape (N,) of responses</span>
-<span class="sd">            for each of the rows (y)</span>
-<span class="sd">    :return: A vector containing the hyperplane equation (beta)</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<h1 id="Homework-2">Homework 2<a class="anchor-link" href="#Homework-2">&#182;</a></h1><h1 id="Due:-Monday-April-17,-23:59">Due: Monday April 17, 23:59<a class="anchor-link" href="#Due:-Monday-April-17,-23:59">&#182;</a></h1><p>In this assignement you will implement code to compute $Bias^2$ and $Variance$ for linear regression.</p>
+<p>You will compare $Bias^2$ and $Variance$ for different values of number of data points, lambda, variance of generated points, etc. You will also see a visualization of $Bias^2$ and $Variance$.</p>
+<p>Remember our definition of decomposition of beta error into bias and variance
+$$ E[||\hat{\beta}-\beta^{*}||^2] = \left(E[\hat{\beta} - \beta^{*}]\right)^2 + \left( E[\hat{\beta}^2] - (E[\hat{\beta}])^2 \right)$$</p>
+<p><strong>MAKE SURE</strong> you understand that each of the expectations in the above formula is a scalar.
+<strong>UNDERSTAND</strong> that $E[]$ is based on the random variable $\hat{\beta}$ which depends on the random
+variable $X$ - the data. 
+In order to compute this expectation, we generate $X$ and $Y$ many times, but all with the same $\beta^{*}$. Since we generate $X$ many times, randomly, then $\hat{\beta}$ is also a random varialbe.</p>
+<p>You will need to implement parts of the functions that are marked with <strong>TODO</strong>.</p>
+<p>you can run your homework file (to test) from command line (terminal, powershell) with the following command:</p>
+<div class="highlight"><pre><span></span>python3 file_name.py
+</pre></div>
+<p>or if you are using Windows</p>
+<div class="highlight"><pre><span></span>py homework3.py
 </pre></div>
 
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Code is available <a href="homeworks/homework3.py">here</a></p>
 
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Afterwards, impolement <code>plot_fitted_line</code> function, that takes $\beta_0, \beta_1, X, Y$ and plots a scatter plot of the data, and the line $y = \beta_0 + \beta_1 x$</p>
+<p>You will need to implement <code>fit_ridge_regression</code> function, see below</p>
 
 </div>
 </div>
@@ -11827,13 +11822,15 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">plot_fitted_line</span><span class="p">(</span><span class="n">b0</span><span class="p">,</span> <span class="n">b1</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">username</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">fit_ridge_regression</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    :param b0: Intersept of line to plot</span>
-<span class="sd">    :param b1: Slope of the line to plot</span>
-<span class="sd">    :param X: An array of length N containing x coordinates of points</span>
-<span class="sd">    :param Y: An array of length N containing y coordinates of points</span>
+<span class="sd">    :param X: A matrix, where each row is a data element (X)</span>
+<span class="sd">    :param Y: A list of responses for each of the rows (y)</span>
+<span class="sd">    :param l: ridge variable</span>
+<span class="sd">    :return: An np_array containing the hyperplane equation (beta)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># TODO Implement to specification (you should have implemented similar function before)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 </pre></div>
 
 </div>
@@ -11846,16 +11843,80 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Here-is-an-example-plot">Here is an example plot<a class="anchor-link" href="#Here-is-an-example-plot">&#182;</a></h3>
+<p><code>polynomial_featurize</code> function</p>
+
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">polynomial_featurize</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">degree</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    param X: a one dimensional numpy array</span>
+<span class="sd">    param degree: integer - degree of the polynomial wanted</span>
+<span class="sd">    return: a 2D np_array where row i is 1x(degree+1) np_array representing the</span>
+<span class="sd">        polynomial.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># TODO</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="homeworks/homework1.arsen.png" style="width: 50%"></p>
+<p><code>decompose</code> function</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">decompose</span><span class="p">(</span><span class="n">beta_list</span><span class="p">,</span> <span class="n">beta_star</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    param beta_list: a list of 1D np_arrays - beta_hats</span>
+<span class="sd">    param beta_star: a 1D np_array</span>
+<span class="sd">        *NOTE that beta_hat and beta_star have different dimensions</span>
+<span class="sd">        *you need to come up with a way of comparing them</span>
+<span class="sd">    return: a 3D tuple (total_error, bias_squarred, variance)</span>
+<span class="sd">    E[||beta_hat-beta_star||^2] = (E[beta_star - beta_hat ])^2 + E[beta_hat^2] - (E[beta_hat])^2</span>
+<span class="sd">        *MAKE SURE you understand that each of the summations above is a number</span>
+<span class="sd">        *UNDERSTAND that E[] is over the random variable beta_hat which depends on the random</span>
+<span class="sd">            variable X - the data. Since we generate X many times, randomly, then beta_hat is</span>
+<span class="sd">            a random varialbe. We are simulating its mean by trying many times.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">d1</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">beta_list</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">d2</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">beta_star</span><span class="p">)</span>
+
+    <span class="c1"># TODO: Implement</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><em>TODO</em>'s in <code>bias_variance</code> and <code>main</code> functions</p>
 
 </div>
 </div>
@@ -11865,28 +11926,13 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Submitting-the-homework">Submitting the homework<a class="anchor-link" href="#Submitting-the-homework">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Make sure your script does not through <code>AssertionError</code>'s when you run</p>
-<p><code>python3 homework1.py test</code></p>
-<p>i.e. you have implemented everything with correct specifications.</p>
+<h1 id="Deliverables:">Deliverables:<a class="anchor-link" href="#Deliverables:">&#182;</a></h1><p><strong>DO NOT POST YOUR FILES TO SLACK</strong></p>
+<p>Send the following files (as attachments) to <code>ml.evening1+homework2@gmail.com</code> with the following subject: <code>Homework 2 - YOURNAME</code> <strong>YOU HAVE TO REPLACE <code>YOURNAME</code> with your name</strong>.</p>
+<ul>
+<li>homework3.png file </li>
+<li>homework3.YOURNAME.py file  (please don't have spaces in file names)</li>
+</ul>
 
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Submit-your-code-and-homework1.YOURNAME.png-file-in-#homework1-channel-on-slack">Submit your code and <code>homework1.YOURNAME.png</code> file in <code>#homework1</code> channel on slack<a class="anchor-link" href="#Submit-your-code-and-homework1.YOURNAME.png-file-in-#homework1-channel-on-slack">&#182;</a></h3>
 </div>
 </div>
 </div>
