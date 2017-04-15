@@ -1,3 +1,5 @@
+{% raw %}
+
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
@@ -11788,7 +11790,7 @@ variable $X$ - the data.
 In order to compute this expectation, we generate $X$ and $Y$ many times, but all with the same $\beta^{*}$. Since we generate $X$ many times, randomly, then $\hat{\beta}$ is also a random varialbe.</p>
 <p>You will need to implement parts of the functions that are marked with <strong>TODO</strong>.</p>
 <p>you can run your homework file (to test) from command line (terminal, powershell) with the following command:</p>
-<div class="highlight"><pre><span></span>python3 file_name.py
+<div class="highlight"><pre><span></span>python3 homework3.py
 </pre></div>
 <p>or if you are using Windows</p>
 <div class="highlight"><pre><span></span>py homework3.py
@@ -11802,10 +11804,45 @@ In order to compute this expectation, we generate $X$ and $Y$ many times, but al
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Code is available <a href="homeworks/homework3.py">here</a></p>
+<p>Code is available <a href="/static/ml_afternoon/homeworks/homework3.py">here</a></p>
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Testing-Your-Code">Testing Your Code<a class="anchor-link" href="#Testing-Your-Code">&#182;</a></h3><p><code>test_function_signatures</code> is your friend (see below) that will help you understand function requirements. If you have any questions regarding this homeworks, please post in <code>#homework3</code> channel.</p>
+<p>You can run the <code>test_function_signatures</code> function, by the following command from command line:</p>
+
+<pre><code>python3 homework3.py test</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">test_function_signatures</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+    <span class="n">total</span><span class="p">,</span> <span class="n">bias</span><span class="p">,</span> <span class="n">variance</span> <span class="o">=</span> <span class="n">decompose</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])],</span>
+                                      <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">]))</span>
+    <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">total</span> <span class="o">-</span> <span class="mf">0.75</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-10</span>
+    <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">bias</span> <span class="o">-</span> <span class="mf">0.25</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-10</span>
+    <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">variance</span> <span class="o">-</span> <span class="mf">0.50</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-10</span>
+
+    <span class="n">poly_vec</span> <span class="o">=</span> <span class="n">polynomial_featurize</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]),</span> <span class="mi">3</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">poly_vec</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="nb">list</span><span class="p">(</span><span class="n">poly_vec</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:])</span> <span class="o">==</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -11850,15 +11887,15 @@ In order to compute this expectation, we generate $X$ and $Y$ many times, but al
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">polynomial_featurize</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">degree</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    param X: a one dimensional numpy array</span>
+<span class="sd">    param X: a one dimensional numpy array, i.g. [x1, x2, ..., xN]</span>
 <span class="sd">    param degree: integer - degree of the polynomial wanted</span>
 <span class="sd">    return: a 2D np_array where row i is 1x(degree+1) np_array representing the</span>
-<span class="sd">        polynomial.</span>
+<span class="sd">        polynomial. e.g. [[1, x1, x1**2, ...], [1, x2, x2**2, ...], ...]</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># TODO</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
@@ -11881,7 +11918,7 @@ In order to compute this expectation, we generate $X$ and $Y$ many times, but al
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">decompose</span><span class="p">(</span><span class="n">beta_list</span><span class="p">,</span> <span class="n">beta_star</span><span class="p">):</span>
@@ -11944,3 +11981,4 @@ In order to compute this expectation, we generate $X$ and $Y$ many times, but al
 
 
 </html>
+{% endraw %}

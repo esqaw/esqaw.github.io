@@ -73,10 +73,10 @@ def main(args):
 
 def polynomial_featurize(X, degree):
     """
-    param X: a one dimensional numpy array
+    param X: a one dimensional numpy array, i.g. [x1, x2, ..., xN]
     param degree: integer - degree of the polynomial wanted
     return: a 2D np_array where row i is 1x(degree+1) np_array representing the
-        polynomial.
+        polynomial. e.g. [[1, x1, x1**2, ...], [1, x2, x2**2, ...], ...]
     """
     # TODO
     return np.zeros((1, 1))
