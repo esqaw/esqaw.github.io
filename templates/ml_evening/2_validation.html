@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>homework2</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>2_validation</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -11774,27 +11774,20 @@ div#notebook {
 <body>
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
-
+<h1 class="title custom_title">Machine Learning</h1>
+<h2>Lecture 2: Validation and Regularization</h2>
+<h2 class="author">by Arsen Mamikonyan</h2>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Homework-2">Homework 2<a class="anchor-link" href="#Homework-2">&#182;</a></h1><h1 id="Due:-Monday-April-17,-23:59">Due: Monday April 17, 23:59<a class="anchor-link" href="#Due:-Monday-April-17,-23:59">&#182;</a></h1><p>In this assignement you will implement code to compute $Bias^2$ and $Variance$ for linear regression.</p>
-<p>You will compare $Bias^2$ and $Variance$ for different values of number of data points, lambda, variance of generated points, etc. You will also see a visualization of $Bias^2$ and $Variance$.</p>
-<p>Remember our definition of decomposition of beta error into bias and variance
-$$ E[||\hat{\beta}-\beta^{*}||^2] = \left(E[\hat{\beta} - \beta^{*}]\right)^2 + \left( E[\hat{\beta}^2] - (E[\hat{\beta}])^2 \right)$$</p>
-<p><strong>MAKE SURE</strong> you understand that each of the expectations in the above formula is a scalar.
-<strong>UNDERSTAND</strong> that $E[]$ is based on the random variable $\hat{\beta}$ which depends on the random
-variable $X$ - the data. 
-In order to compute this expectation, we generate $X$ and $Y$ many times, but all with the same $\beta^{*}$. Since we generate $X$ many times, randomly, then $\hat{\beta}$ is also a random varialbe.</p>
-<p>You will need to implement parts of the functions that are marked with <strong>TODO</strong>.</p>
-<p>you can run your homework file (to test) from command line (terminal, powershell) with the following command:</p>
-<div class="highlight"><pre><span></span>python3 file_name.py
-</pre></div>
-<p>or if you are using Windows</p>
-<div class="highlight"><pre><span></span>py homework3.py
-</pre></div>
+<h1 id="Seminars">Seminars<a class="anchor-link" href="#Seminars">&#182;</a></h1><ol>
+<li>Calculus - Monday??</li>
+<li>Linear Algebra - Monday??</li>
+<li>Probability - ??</li>
+<li>Python - Saturday 6pm</li>
+</ol>
 
 </div>
 </div>
@@ -11804,7 +11797,9 @@ In order to compute this expectation, we generate $X$ and $Y$ many times, but al
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Code is available <a href="/static/ml_evening/homeworks/homework2.py">here</a></p>
+<h1 id="Homework">Homework<a class="anchor-link" href="#Homework">&#182;</a></h1><ul>
+<li>Homework1 posted, due: Saturday 23:59</li>
+</ul>
 
 </div>
 </div>
@@ -11814,11 +11809,29 @@ In order to compute this expectation, we generate $X$ and $Y$ many times, but al
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Testing-Your-Code">Testing Your Code<a class="anchor-link" href="#Testing-Your-Code">&#182;</a></h3><p><code>test_function_signatures</code> is your friend (see below) that will help you understand function requirements. If you have any questions regarding this homeworks, please post in <code>#homework2</code> channel.</p>
-<p>You can run the <code>test_function_signatures</code> function, by the following command from command line:</p>
+<h1 id="Last-Time">Last Time<a class="anchor-link" href="#Last-Time">&#182;</a></h1><h2 id="Maximul-Likelihood-Esimator">Maximul Likelihood Esimator<a class="anchor-link" href="#Maximul-Likelihood-Esimator">&#182;</a></h2>$$ \hat{\beta} = \arg\min_{\beta} P(X, Y \mid \beta) $$<h2 id="We-assumed-that-we-had-modeled-things-correctly-and-we-calculated-expected-error">We assumed that we had modeled things correctly and we calculated expected error<a class="anchor-link" href="#We-assumed-that-we-had-modeled-things-correctly-and-we-calculated-expected-error">&#182;</a></h2>$$ \mathbb{E} \left[ ||\hat{\beta} - \beta^{*}||^2 \right] = Variance + Bias^2 \approx \frac{{\sigma^{*}}^2}{N} Tr(C^{-1}) $$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Today">Today<a class="anchor-link" href="#Today">&#182;</a></h1><h3 id="What-if-we-don't-know-the-underlying-process?">What if we don't know the underlying process?<a class="anchor-link" href="#What-if-we-don't-know-the-underlying-process?">&#182;</a></h3><ul>
+<li>How do we know if we are have a good model?</li>
+<li>Can we fit non-linear functions?</li>
+</ul>
 
-<pre><code>python3 homework2.py test</code></pre>
-
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Example:-Housing-Prices-in-Yerevan">Example: Housing Prices in Yerevan<a class="anchor-link" href="#Example:-Housing-Prices-in-Yerevan">&#182;</a></h1>
 </div>
 </div>
 </div>
@@ -11827,19 +11840,63 @@ In order to compute this expectation, we generate $X$ and $Y$ many times, but al
 <div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">test_function_signatures</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
-    <span class="n">total</span><span class="p">,</span> <span class="n">bias</span><span class="p">,</span> <span class="n">variance</span> <span class="o">=</span> <span class="n">decompose</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])],</span>
-                                      <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">]))</span>
-    <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">total</span> <span class="o">-</span> <span class="mf">0.75</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-10</span>
-    <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">bias</span> <span class="o">-</span> <span class="mf">0.25</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-10</span>
-    <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">variance</span> <span class="o">-</span> <span class="mf">0.50</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-10</span>
-
-    <span class="n">poly_vec</span> <span class="o">=</span> <span class="n">polynomial_featurize</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]),</span> <span class="mi">3</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">poly_vec</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="nb">list</span><span class="p">(</span><span class="n">poly_vec</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:])</span> <span class="o">==</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Import everything in the beginning, so code looks simpler when it on the screen</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">run</span> hidden_code.py
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;presentation_data/lec2/center.csv&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Total </span><span class="si">{:,}</span><span class="s1"> apartments&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+<span class="c1"># Scatter plot area vs price.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>  <span class="c1"># Clears the figure from previous output.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;area&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;area in square meters&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;price in $&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Apartment prices in Yerevan Center&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;presentation_data/lec2/center_prices.png&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">320</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Total 2,876 apartments
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -11849,8 +11906,27 @@ In order to compute this expectation, we generate $X$ and $Y$ many times, but al
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>You will need to implement <code>fit_ridge_regression</code> function, see below</p>
-
+<div>
+    <img src="/static/ml_evening/presentation_data/lec2/center_prices.png" style="float: center; width: 90%">
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Data-for-Yerevan-center-is-available-here">Data for Yerevan center is available <a href="/static/ml_evening/presentation_data/lec2/center.csv">here</a><a class="anchor-link" href="#Data-for-Yerevan-center-is-available-here">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Let's-fit-a-linear-regression">Let's fit a linear regression<a class="anchor-link" href="#Let's-fit-a-linear-regression">&#182;</a></h1>
 </div>
 </div>
 </div>
@@ -11859,15 +11935,30 @@ In order to compute this expectation, we generate $X$ and $Y$ many times, but al
 <div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">fit_ridge_regression</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    :param X: A matrix, where each row is a data element (X)</span>
-<span class="sd">    :param Y: A list of responses for each of the rows (y)</span>
-<span class="sd">    :param l: ridge variable</span>
-<span class="sd">    :return: An np_array containing the hyperplane equation (beta)</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="c1"># TODO Implement to specification (you should have implemented similar function before)</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;presentation_data/lec2/center.csv&#39;</span><span class="p">)</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="p">[</span><span class="n">apt</span><span class="p">[</span><span class="s1">&#39;area&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">apt</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">()]</span>  <span class="c1"># Note that X is a matrix.</span>
+<span class="c1"># Divide price by 1000, so it&#39;s more readable.</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="p">[</span><span class="n">apt</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="mi">1000</span> <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">apt</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">()]</span>
+
+<span class="c1"># Scatter plot area vs price.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>  <span class="c1"># Clears the figure from previous output.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;area&#39;</span><span class="p">],</span> <span class="n">Y</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;cyan&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;area in square meters&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;price in 1000$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Apartment prices in Yerevan Center&#39;</span><span class="p">)</span>
+
+<span class="n">beta</span> <span class="o">=</span> <span class="n">fit_one_dimensional_linear_regression</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
+<span class="n">curve_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">160</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">curve_y</span> <span class="o">=</span> <span class="p">[</span><span class="nb">sum</span><span class="p">(</span><span class="n">beta</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">x</span> <span class="o">**</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">beta</span><span class="p">)))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">curve_x</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">curve_x</span><span class="p">,</span> <span class="n">curve_y</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">{:.2f}</span><span class="s1"> + </span><span class="si">{:.2f}</span><span class="s1"> x &#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">beta</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">beta</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+
+<span class="n">beta</span> <span class="o">=</span> <span class="n">fit_polynomial_regression</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">degree</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">quadratic_curve_y</span> <span class="o">=</span> <span class="p">[</span><span class="nb">sum</span><span class="p">(</span><span class="n">beta</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">x</span> <span class="o">**</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">beta</span><span class="p">)))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">curve_x</span><span class="p">]</span>
+<span class="c1"># plt.plot(curve_x, quadratic_curve_y, label=&#39;{:.2f} + {:.2f} x + {:.2f} x^2&#39;.format(beta[0], beta[1], beta[2]), color=&#39;purple&#39;)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>  <span class="c1"># Show legend of data.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;presentation_data/lec2/center_only_linear_prices.png&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">320</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -11880,8 +11971,216 @@ In order to compute this expectation, we generate $X$ and $Y$ many times, but al
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>polynomial_featurize</code> function</p>
+<div>
+    <img src="/static/ml_evening/presentation_data/lec2/center_only_linear_prices.png" style="float: center; width: 90%">
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div>
+    <img src="/static/ml_evening/presentation_data/lec2/center_linear_prices.png" style="float: center; width: 90%">
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Quadratic-fits-better.">Quadratic fits better.<a class="anchor-link" href="#Quadratic-fits-better.">&#182;</a></h3><h4 id="Why-not-try-higher-order-polynomials?">Why not try higher order polynomials?<a class="anchor-link" href="#Why-not-try-higher-order-polynomials?">&#182;</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="How-to-fit-higher-order-regressions?..">How to fit higher order regressions?..<a class="anchor-link" href="#How-to-fit-higher-order-regressions?..">&#182;</a></h1><p>use $\phi(x) = [x^0, x^1, x^2, ..., x^p]$ instead of $x$</p>
 
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;presentation_data/lec2/center.csv&#39;</span><span class="p">)</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="p">[</span><span class="n">apt</span><span class="p">[</span><span class="s1">&#39;area&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">apt</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">()]</span>  <span class="c1"># Note that X is a matrix.</span>
+<span class="c1"># Divide price by 1000, so it&#39;s more readable.</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="p">[</span><span class="n">apt</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="mi">1000</span> <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">apt</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">()]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;degree, squared_error&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+    <span class="n">beta</span> <span class="o">=</span> <span class="n">fit_polynomial_regression</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">degree</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">curve_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">160</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">curve_y</span> <span class="o">=</span> <span class="p">[</span><span class="nb">sum</span><span class="p">(</span><span class="n">beta</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">x</span> <span class="o">**</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">beta</span><span class="p">)))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">curve_x</span><span class="p">]</span>
+    <span class="n">squared_error</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">((</span><span class="n">y</span> <span class="o">-</span> <span class="nb">sum</span><span class="p">(</span><span class="n">beta</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">x</span> <span class="o">**</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">beta</span><span class="p">))))</span> <span class="o">**</span> <span class="mi">2</span>
+                        <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">))</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:6d}</span><span class="s1">  </span><span class="si">{:,.1f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">squared_error</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>degree, squared_error
+     1  2,015.2
+     2  1,923.3
+     3  1,922.8
+     4  1,907.0
+     5  1,897.2
+     6  1,893.8
+     7  1,893.5
+     8  1,891.2
+     9  1,890.4
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;presentation_data/lec2/center.csv&#39;</span><span class="p">)</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="p">[</span><span class="n">apt</span><span class="p">[</span><span class="s1">&#39;area&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">apt</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">()]</span>  <span class="c1"># Note that X is a matrix.</span>
+<span class="c1"># Divide price by 1000, so it&#39;s more readable.</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="p">[</span><span class="n">apt</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="mi">1000</span> <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">apt</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">()]</span>
+
+<span class="c1"># Scatter plot area vs price.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>  <span class="c1"># Clears the figure from previous output.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;area&#39;</span><span class="p">],</span> <span class="n">Y</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;cyan&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;area in square meters&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;price in 1000$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Apartment prices in Yerevan Center&#39;</span><span class="p">)</span>
+
+<span class="n">beta</span> <span class="o">=</span> <span class="n">fit_one_dimensional_linear_regression</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">Y</span><span class="p">))</span>
+<span class="n">curve_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">curve_y</span> <span class="o">=</span> <span class="p">[</span><span class="nb">sum</span><span class="p">(</span><span class="n">beta</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">x</span> <span class="o">**</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">beta</span><span class="p">)))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">curve_x</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">curve_x</span><span class="p">,</span> <span class="n">curve_y</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">{:.2f}</span><span class="s1"> + </span><span class="si">{:.2f}</span><span class="s1"> x &#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">beta</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">beta</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+
+<span class="n">beta</span> <span class="o">=</span> <span class="n">fit_polynomial_regression</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">degree</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
+<span class="n">poly_curve_y</span> <span class="o">=</span> <span class="p">[</span><span class="nb">sum</span><span class="p">(</span><span class="n">beta</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">x</span> <span class="o">**</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">beta</span><span class="p">)))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">curve_x</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">curve_x</span><span class="p">,</span> <span class="n">poly_curve_y</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;9th degree poly&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">beta</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">beta</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">beta</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>  <span class="c1"># Show legend of data.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;presentation_data/lec2/tenth_degree_prices.png&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">320</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div>
+    <img src="/static/ml_evening/presentation_data/lec2/tenth_degree_prices.png" style="float: center; width: 70%">
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Cross-Validation">Cross Validation<a class="anchor-link" href="#Cross-Validation">&#182;</a></h1><h3 id="Use-part-of-the-data-to-see-if-our-model-has-good-predictive-power">Use part of the data to see if our model has good predictive power<a class="anchor-link" href="#Use-part-of-the-data-to-see-if-our-model-has-good-predictive-power">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;presentation_data/lec2/center.csv&#39;</span><span class="p">)</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">apt</span><span class="p">[</span><span class="s1">&#39;area&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">apt</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">()])</span>  <span class="c1"># Note that X is a matrix.</span>
+<span class="c1"># Divide price by 1000, so it&#39;s more readable.</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">apt</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="mi">1000</span> <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">apt</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">()])</span>
+
+<span class="c1"># Divide data into 5 parts, and use 2nd. I picked 3 randomly by a die roll ;)</span>
+<span class="n">parts</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span>
+<span class="n">test_X</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">k</span><span class="p">::</span><span class="n">parts</span><span class="p">]</span>
+<span class="n">test_Y</span> <span class="o">=</span> <span class="n">Y</span><span class="p">[</span><span class="n">k</span><span class="p">::</span><span class="n">parts</span><span class="p">]</span>
+<span class="n">train_X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">X</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">))</span> <span class="k">if</span> <span class="p">(</span><span class="n">j</span> <span class="o">%</span> <span class="n">parts</span><span class="p">)</span> <span class="o">!=</span> <span class="n">k</span><span class="p">])</span>
+<span class="n">train_Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">Y</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Y</span><span class="p">))</span> <span class="k">if</span> <span class="p">(</span><span class="n">j</span> <span class="o">%</span> <span class="n">parts</span><span class="p">)</span> <span class="o">!=</span> <span class="n">k</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Scatter plot area vs price.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>  <span class="c1"># Clears the figure from previous output.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">train_X</span><span class="p">,</span> <span class="n">train_Y</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;train data&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">test_X</span><span class="p">,</span> <span class="n">test_Y</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;test data&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;area in square meters&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;price in 1000$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Apartment prices in Yerevan Center&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;presentation_data/lec2/train_test_datasets.png&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">320</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div>
+    <img src="/static/ml_evening/presentation_data/lec2/train_test_datasets.png" style="float: center; width: 80%">
+</div>
 </div>
 </div>
 </div>
@@ -11890,18 +12189,48 @@ In order to compute this expectation, we generate $X$ and $Y$ many times, but al
 <div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">polynomial_featurize</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">degree</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    param X: a one dimensional numpy array</span>
-<span class="sd">    param degree: integer - degree of the polynomial wanted</span>
-<span class="sd">    return: a 2D np_array where row i is 1x(degree+1) np_array representing the</span>
-<span class="sd">        polynomial.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="c1"># TODO</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;presentation_data/lec2/center.csv&#39;</span><span class="p">)</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="p">[</span><span class="n">apt</span><span class="p">[</span><span class="s1">&#39;area&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">apt</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">()]</span>  <span class="c1"># Note that X is a matrix.</span>
+<span class="c1"># Divide price by 1000, so it&#39;s more readable.</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="p">[</span><span class="n">apt</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="mi">1000</span> <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">apt</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">()]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;degree, test_squared_error&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+    <span class="n">beta</span> <span class="o">=</span> <span class="n">fit_polynomial_regression</span><span class="p">(</span><span class="n">train_X</span><span class="p">,</span> <span class="n">train_Y</span><span class="p">,</span> <span class="n">degree</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">curve_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">160</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">curve_y</span> <span class="o">=</span> <span class="p">[</span><span class="nb">sum</span><span class="p">(</span><span class="n">beta</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">x</span> <span class="o">**</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">beta</span><span class="p">)))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">curve_x</span><span class="p">]</span>
+    <span class="n">squared_error</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">((</span><span class="n">y</span> <span class="o">-</span> <span class="nb">sum</span><span class="p">(</span><span class="n">beta</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">x</span> <span class="o">**</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">beta</span><span class="p">))))</span> <span class="o">**</span> <span class="mi">2</span>
+                        <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">test_X</span><span class="p">,</span> <span class="n">test_Y</span><span class="p">))</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">test_Y</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:6d}</span><span class="s1">  </span><span class="si">{:,.1f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">squared_error</span><span class="p">))</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>degree, test_squared_error
+     1  2,035.0
+     2  1,907.3
+     3  1,906.1
+     4  1,890.6
+     5  1,875.7
+     6  1,873.9
+     7  1,876.2
+     8  1,894.1
+     9  1,895.2
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -11911,8 +12240,304 @@ In order to compute this expectation, we generate $X$ and $Y$ many times, but al
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>decompose</code> function</p>
+<p>Now the best option is <em>6th degree</em> polynomial!</p>
 
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="10-minute-break">10 minute break<a class="anchor-link" href="#10-minute-break">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Ridge-Regression">Ridge Regression<a class="anchor-link" href="#Ridge-Regression">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">var</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">X2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">X2_test</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="c1"># add gaussian noise, y* = f(x) + N(0, sigma^2)</span>
+<span class="n">Y2</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">var</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">X2</span><span class="p">]</span>
+<span class="n">Y2_test</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">var</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">X2_test</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">beta</span> <span class="o">=</span> <span class="n">fit_polynomial_regression</span><span class="p">(</span><span class="n">X2</span><span class="p">,</span> <span class="n">Y2</span><span class="p">,</span> <span class="n">degree</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">curve_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">.</span><span class="mi">01</span><span class="p">)</span>
+<span class="n">curve_y</span> <span class="o">=</span> <span class="p">[</span><span class="nb">sum</span><span class="p">(</span><span class="n">beta</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">x</span> <span class="o">**</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">beta</span><span class="p">)))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">curve_x</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s1">&#39;</span><span class="si">{:,.1f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">bi</span><span class="p">)</span> <span class="k">for</span> <span class="n">bi</span> <span class="ow">in</span> <span class="n">beta</span><span class="p">]))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X2</span><span class="p">,</span> <span class="n">Y2</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">curve_x</span><span class="p">,</span> <span class="n">curve_y</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;polynomial&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;purple&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>-0.0, 8.8, -149.4, 1,296.4, -5,376.7, 11,909.9, -14,522.6, 9,195.2, -2,362.1
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+<div class="prompt"></div>
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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
+"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Ridge-regression-derivation..">Ridge regression derivation..<a class="anchor-link" href="#Ridge-regression-derivation..">&#182;</a></h1>
 </div>
 </div>
 </div>
@@ -11921,57 +12546,341 @@ In order to compute this expectation, we generate $X$ and $Y$ many times, but al
 <div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">decompose</span><span class="p">(</span><span class="n">beta_list</span><span class="p">,</span> <span class="n">beta_star</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    param beta_list: a list of 1D np_arrays - beta_hats</span>
-<span class="sd">    param beta_star: a 1D np_array</span>
-<span class="sd">        *NOTE that beta_hat and beta_star have different dimensions</span>
-<span class="sd">        *you need to come up with a way of comparing them</span>
-<span class="sd">    return: a 3D tuple (total_error, bias_squarred, variance)</span>
-<span class="sd">    E[||beta_hat-beta_star||^2] = (E[beta_star - beta_hat ])^2 + E[beta_hat^2] - (E[beta_hat])^2</span>
-<span class="sd">        *MAKE SURE you understand that each of the summations above is a number</span>
-<span class="sd">        *UNDERSTAND that E[] is over the random variable beta_hat which depends on the random</span>
-<span class="sd">            variable X - the data. Since we generate X many times, randomly, then beta_hat is</span>
-<span class="sd">            a random varialbe. We are simulating its mean by trying many times.</span>
-
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">d1</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">beta_list</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-    <span class="n">d2</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">beta_star</span><span class="p">)</span>
-
-    <span class="c1"># TODO: Implement</span>
-
-    <span class="k">return</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">r_beta</span> <span class="o">=</span> <span class="n">fit_ridge_polynomial_regression</span><span class="p">(</span><span class="n">X2</span><span class="p">,</span> <span class="n">Y2</span><span class="p">,</span> <span class="n">degree</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">curve_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">.</span><span class="mi">01</span><span class="p">)</span>
+<span class="n">curve_y</span> <span class="o">=</span> <span class="p">[</span><span class="nb">sum</span><span class="p">(</span><span class="n">r_beta</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">x</span> <span class="o">**</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">r_beta</span><span class="p">)))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">curve_x</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X2</span><span class="p">,</span> <span class="n">Y2</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">curve_x</span><span class="p">,</span> <span class="n">curve_y</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;polynomial&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;purple&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 
 </div>
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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
+"
+>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+
 </div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><em>TODO</em>'s in <code>bias_variance</code> and <code>main</code> functions</p>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;degree,     poly,    ridge&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">beta</span><span class="p">,</span> <span class="n">r_beta</span><span class="p">)):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;beta_</span><span class="si">{:1}</span><span class="s1">, </span><span class="si">{:9.1f}</span><span class="s1">, </span><span class="si">{:7.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">r</span><span class="p">))</span>
+</pre></div>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>degree,     poly,    ridge
+beta_0,      -0.0,    0.18
+beta_1,       8.8,    2.00
+beta_2,    -149.4,   -0.25
+beta_3,    1296.4,   -0.85
+beta_4,   -5376.7,   -0.76
+beta_5,   11909.9,   -0.50
+beta_6,  -14522.6,   -0.24
+beta_7,    9195.2,   -0.03
+beta_8,   -2362.1,    0.13
+</pre>
 </div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Deliverables:">Deliverables:<a class="anchor-link" href="#Deliverables:">&#182;</a></h1><p><strong>DO NOT POST YOUR FILES TO SLACK</strong></p>
-<p>Send the following files (as attachments) to <code>ml.evening1+homework2@gmail.com</code> with the following subject: <code>Homework 2 - YOURNAME</code> <strong>YOU HAVE TO REPLACE <code>YOURNAME</code> with your name</strong>.</p>
-<ul>
-<li>homework2.png file </li>
-<li>homework2.YOURNAME.py file  (please don't have spaces in file names)</li>
-</ul>
+</div>
 
 </div>
 </div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;presentation_data/lec2/center.csv&#39;</span><span class="p">)</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="p">[</span><span class="n">apt</span><span class="p">[</span><span class="s1">&#39;area&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">apt</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">()]</span>  <span class="c1"># Note that X is a matrix.</span>
+<span class="c1"># Divide price by 1000, so it&#39;s more readable.</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="p">[</span><span class="n">apt</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="mi">1000</span> <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">apt</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">()]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;degree, poly_sq_err, ridge_sq_err&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+    <span class="n">curve_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">160</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">parts</span> <span class="o">=</span> <span class="mi">5</span>
+    <span class="n">r_errors</span><span class="p">,</span> <span class="n">p_errors</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">parts</span><span class="p">):</span>
+        <span class="n">test_X</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">k</span><span class="p">::</span><span class="n">parts</span><span class="p">]</span>
+        <span class="n">test_Y</span> <span class="o">=</span> <span class="n">Y</span><span class="p">[</span><span class="n">k</span><span class="p">::</span><span class="n">parts</span><span class="p">]</span>
+        <span class="n">train_X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">X</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">))</span> <span class="k">if</span> <span class="p">(</span><span class="n">j</span> <span class="o">%</span> <span class="n">parts</span><span class="p">)</span> <span class="o">!=</span> <span class="n">k</span><span class="p">])</span>
+        <span class="n">train_Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">Y</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Y</span><span class="p">))</span> <span class="k">if</span> <span class="p">(</span><span class="n">j</span> <span class="o">%</span> <span class="n">parts</span><span class="p">)</span> <span class="o">!=</span> <span class="n">k</span><span class="p">])</span>
+        <span class="n">beta</span> <span class="o">=</span> <span class="n">fit_ridge_polynomial_regression</span><span class="p">(</span><span class="n">train_X</span><span class="p">,</span> <span class="n">train_Y</span><span class="p">,</span> <span class="n">degree</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">curve_y</span> <span class="o">=</span> <span class="p">[</span><span class="nb">sum</span><span class="p">(</span><span class="n">beta</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">x</span> <span class="o">**</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">beta</span><span class="p">)))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">curve_x</span><span class="p">]</span>
+        <span class="n">r_errors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">sum</span><span class="p">((</span><span class="n">y</span> <span class="o">-</span> <span class="nb">sum</span><span class="p">(</span><span class="n">beta</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">x</span> <span class="o">**</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">beta</span><span class="p">))))</span> <span class="o">**</span> <span class="mi">2</span>
+                          <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">test_X</span><span class="p">,</span> <span class="n">test_Y</span><span class="p">))</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">test_Y</span><span class="p">))</span>
+        <span class="n">beta</span> <span class="o">=</span> <span class="n">fit_polynomial_regression</span><span class="p">([</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">X</span><span class="p">],</span> <span class="n">Y</span><span class="p">,</span> <span class="n">degree</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
+        <span class="n">curve_y</span> <span class="o">=</span> <span class="p">[</span><span class="nb">sum</span><span class="p">(</span><span class="n">beta</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">x</span> <span class="o">**</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">beta</span><span class="p">)))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">curve_x</span><span class="p">]</span>
+        <span class="n">p_errors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">sum</span><span class="p">((</span><span class="n">y</span> <span class="o">-</span> <span class="nb">sum</span><span class="p">(</span><span class="n">beta</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">x</span> <span class="o">**</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">beta</span><span class="p">))))</span> <span class="o">**</span> <span class="mi">2</span>
+                        <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">test_X</span><span class="p">,</span> <span class="n">test_Y</span><span class="p">))</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">test_Y</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:6d}</span><span class="s1">  </span><span class="si">{:10,.1f}</span><span class="s1">   </span><span class="si">{:,.1f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">r_errors</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">p_errors</span><span class="p">)))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>degree, poly_sq_err, ridge_sq_err
+     1     2,016.2   2,015.1
+     2     1,927.6   1,923.2
+     3     1,928.9   1,922.8
+     4     1,916.7   1,906.9
+     5     1,906.7   1,897.1
+     6     1,906.8   1,893.7
+     7     1,903.1   1,893.4
+     8     1,905.2   1,891.2
+     9     1,904.5   1,890.4
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
     </div>
   </div>
