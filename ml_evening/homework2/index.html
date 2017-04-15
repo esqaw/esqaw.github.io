@@ -11802,10 +11802,45 @@ In order to compute this expectation, we generate $X$ and $Y$ many times, but al
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Code is available <a href="homeworks/homework3.py">here</a></p>
+<p>Code is available <a href="/static/ml_evening/homeworks/homework2.py">here</a></p>
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Testing-Your-Code">Testing Your Code<a class="anchor-link" href="#Testing-Your-Code">&#182;</a></h3><p><code>test_function_signatures</code> is your friend (see below) that will help you understand function requirements. If you have any questions regarding this homeworks, please post in <code>#homework2</code> channel.</p>
+<p>You can run the <code>test_function_signatures</code> function, by the following command from command line:</p>
+
+<pre><code>python3 homework2.py test</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">test_function_signatures</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+    <span class="n">total</span><span class="p">,</span> <span class="n">bias</span><span class="p">,</span> <span class="n">variance</span> <span class="o">=</span> <span class="n">decompose</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])],</span>
+                                      <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">]))</span>
+    <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">total</span> <span class="o">-</span> <span class="mf">0.75</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-10</span>
+    <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">bias</span> <span class="o">-</span> <span class="mf">0.25</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-10</span>
+    <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">variance</span> <span class="o">-</span> <span class="mf">0.50</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-10</span>
+
+    <span class="n">poly_vec</span> <span class="o">=</span> <span class="n">polynomial_featurize</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]),</span> <span class="mi">3</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">poly_vec</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="nb">list</span><span class="p">(</span><span class="n">poly_vec</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:])</span> <span class="o">==</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -11929,8 +11964,8 @@ In order to compute this expectation, we generate $X$ and $Y$ many times, but al
 <h1 id="Deliverables:">Deliverables:<a class="anchor-link" href="#Deliverables:">&#182;</a></h1><p><strong>DO NOT POST YOUR FILES TO SLACK</strong></p>
 <p>Send the following files (as attachments) to <code>ml.evening1+homework2@gmail.com</code> with the following subject: <code>Homework 2 - YOURNAME</code> <strong>YOU HAVE TO REPLACE <code>YOURNAME</code> with your name</strong>.</p>
 <ul>
-<li>homework3.png file </li>
-<li>homework3.YOURNAME.py file  (please don't have spaces in file names)</li>
+<li>homework2.png file </li>
+<li>homework2.YOURNAME.py file  (please don't have spaces in file names)</li>
 </ul>
 
 </div>
