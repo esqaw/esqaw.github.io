@@ -1,6 +1,8 @@
 default: freeze
 
 freeze: build 
+	./fix_ml_html_statics.sh
+	./insert_raw_to_ml_lectures.sh
 	docker run -v `pwd`/build:/usr/src/app/build -it arsen_mamikonyan_am python3 ./freeze.py
 
 debug: build 
