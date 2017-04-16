@@ -33,8 +33,8 @@ def d_dimensional_comparison(d, beta_star, num_points, sigma, l=1):
 
 if __name__ == '__main__':
     beta5d = [15, 2.2, 3.5, 4.4, 1.1, 3.9]
-    beta_est = gradient_descent([[1, 2], [1, 3], [1, 4], [1, 5]],
-                                [2, 3, 4, 5.01],
+    beta_est = gradient_descent(np.array([[1, 2], [1, 3], [1, 4], [1, 5]]),
+                                np.array([2, 3, 4, 5.01]),
                                 max_steps=2)
-    assert beta_est.shape == 6
+    assert beta_est.shape == (2,)
     d_dimensional_comparison(5, beta5d, 200, 2, l=1)
