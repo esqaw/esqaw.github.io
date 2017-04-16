@@ -28,6 +28,13 @@
   {% endfor %}
   </ul>
 
+  <h3>Practicals:</h3>
+  <ul>
+  {% for name, filename in practicals%}
+    <li><a href="{{filename}}">{{name}}</a></li>
+  {% endfor %}
+  </ul>
+
   <h3>List of lectures so far:</h3>
   <ul>
   {% for name, filename in lectures %}
