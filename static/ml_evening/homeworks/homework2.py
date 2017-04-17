@@ -16,6 +16,7 @@ import argparse
 import getpass
 import matplotlib.pyplot as plt
 import numpy as np
+import os
 
 
 def parse_args(*argument_array):
@@ -124,8 +125,8 @@ def bias_variance(num_trials, num_points, degree, beta_star, sigma, x_left_lim=0
     # and give you some idea
     beta_list = []
     X = np.random.uniform(x_left_lim, x_right_lim, num_points)
-    X = polynomial_featurize(X, len(beta_star) - 1)
-    Y = X.dot(beta_star)
+    poly_X = polynomial_featurize(X, len(beta_star) - 1)
+    Y = poly_X.dot(beta_star)
     # TODO for num_trials times, generate X and Y given the params above. Compute beta_hat for
     # each of them and add that to beta_list
 
@@ -145,7 +146,9 @@ def bias_variance(num_trials, num_points, degree, beta_star, sigma, x_left_lim=0
     plt.scatter(X, Y)
     axes = plt.gca()
     axes.set_ylim([np.min(line_y), np.max(line_y)])
-    plt.savefig("image.png", dpi=320, bbox_inches='tight')
+    plt.title('user: ' + getpass.getuser())
+    plot_name = os.path.splitext(os.path.basename(__file__))[0] + '.png'
+    plt.savefig(plot_name, dpi=320, bbox_inches='tight')
     return decompose(beta_list, beta_star)
 
 
