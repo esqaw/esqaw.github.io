@@ -4,3 +4,5 @@ build
 .python3/
 
 .DS_Store
+
+static/reveal.js/
