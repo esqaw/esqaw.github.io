@@ -4,3 +4,4 @@ templates
 *.sw[op]
 
 .DS_Store
+__pycache__/
