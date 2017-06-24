@@ -1,9 +1,7 @@
-
-
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>s1_clustering</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>practical_s1_clustering</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -11774,28 +11772,14 @@ div#notebook {
 <body>
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
-<h1 class="title custom_title">Machine Learning</h1>
-<h2>Lecture s1: Unsupervised Learning: Clustering</h2>
-<h2 class="author">by Arsen Mamikonyan</h2>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">run</span> s1_hidden.py
-</pre></div>
 
-</div>
-</div>
-</div>
-
-</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Rest-of-the-course">Rest of the course<a class="anchor-link" href="#Rest-of-the-course">&#182;</a></h1>
+<h1 id="Practical-s1">Practical s1<a class="anchor-link" href="#Practical-s1">&#182;</a></h1><p>Clustering</p>
+
 </div>
 </div>
 </div>
@@ -11804,8 +11788,20 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p>In this Practical you will implement K-means++ and the Expectation Maximization algorithm for Gaussian Mixture Model.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We will use these 2 datasets</p>
 <ul>
-<li>2 weeks - Unsupervised Learning [19 June - 2 July]</li>
+<li><a href="presentation_data/practical_s1/sparse_clusters.csv">Data with sparse clusters</a> is for you to test your algorithm. But <strong>you might want to start with an even simpler dataset for initial tests</strong></li>
+<li><a href="presentation_data/practical_s1/dense_clusters.csv">Data with dense clusters</a> is for testing your algorithm before submitting your code.</li>
 </ul>
 
 </div>
@@ -11816,8 +11812,29 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p>Throughout the code all the parts that you need to implement are marked with <strong>TODO</strong>'s.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Part-1:-Implement-k-means">Part 1: Implement k-means<a class="anchor-link" href="#Part-1:-Implement-k-means">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Download the following 2 files:</p>
 <ul>
-<li>5 weeks - Bayesian Inference (Graphical Models) [3 July - 6 August]</li>
+<li><a href="presentation_data/practical_s1/kmeans.py">kmeans.py</a> File containing skeleton code algorithms.</li>
+<li><a href="presentation_data/practical_s1/color_points.py">color_points.py</a> File that helps you plot colored plots like you saw in the lecture.</li>
 </ul>
 
 </div>
@@ -11828,8 +11845,29 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p>Implement both <code>k-means++</code> and random initialization algorithms, both of those will be graded.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Part-2:-Gaussian-Mixture-Model">Part 2: Gaussian Mixture Model<a class="anchor-link" href="#Part-2:-Gaussian-Mixture-Model">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Download the following 2 files:</p>
 <ul>
-<li>2 weeks - Projects [7 August - 20 August]</li>
+<li><a href="presentation_data/practical_s1/mixture.py">mixture.py</a> File containing GaussianMixtureModel class you'll need to implment</li>
+<li><a href="presentation_data/practical_s1/plot_covariances.py">plot_covariances.py</a> that plots covariances of clusters you get with the GMM.</li>
 </ul>
 
 </div>
@@ -11840,7 +11878,9 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Unsupervised-Learning">Unsupervised Learning<a class="anchor-link" href="#Unsupervised-Learning">&#182;</a></h1>
+<p>Here is an exmaple of the plot on the sparse dataset
+<img src="presentation_data/practical_s1/sparse_example.png" style="width: 80%"></p>
+
 </div>
 </div>
 </div>
@@ -11849,386 +11889,13 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Deliverables">Deliverables<a class="anchor-link" href="#Deliverables">&#182;</a></h1><p>Submit 4 files (2 .py files and 2 plots) to <a href="mailto:ml.afternoon1+practical_s1@gmail.com">ml.afternoon1+practical_s1@gmail.com</a> with "<code>Practical s1 - YOUR NAME</code>" as subject.</p>
 <ul>
-<li>Have data, but <strong>no labels</strong></li>
+<li><code>mixture.py</code></li>
+<li><code>kmeans.py</code></li>
+<li>Plot when you run <code>color_points.py</code> with k-means on dense dataset</li>
+<li>Plot when you run <code>plot_covariances.py</code></li>
 </ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="It-is-hard-to-evaluate-correctness">It is hard to evaluate correctness<a class="anchor-link" href="#It-is-hard-to-evaluate-correctness">&#182;</a></h1><ul>
-<li>e.g., we can't have accuracy for the answer</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Examples">Examples<a class="anchor-link" href="#Examples">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;How many different flowers?&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">feature_names</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">feature_names</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;unlabeled data&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;presentation_data/lecs1/petal_scatter.png&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">320</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="/static/ml_afternoon/presentation_data/lecs1/petal_scatter.png" syle="width: 90%"></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="http://scikit-learn.org/stable/_images/sphx_glr_plot_species_kde_001.png"></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="This-week">This week<a class="anchor-link" href="#This-week">&#182;</a></h2><ul>
-<li>Clustering</li>
-</ul>
-<h2 id="Next-week">Next week<a class="anchor-link" href="#Next-week">&#182;</a></h2><ul>
-<li>Density Estimationl</li>
-<li>Dimensionality Reduction</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Today:-K-means-Clustering">Today: K-means Clustering<a class="anchor-link" href="#Today:-K-means-Clustering">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>We know we want to divide the data in $k$ clusters</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="We-need-an-objective-function.">We need an objective function.<a class="anchor-link" href="#We-need-an-objective-function.">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>How far are points from their cluster center</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>To the board...</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Demo">Demo<a class="anchor-link" href="#Demo">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><h3 align="center">Initalization</h3>
-<img src="/static/ml_afternoon/presentation_data/lecs1/0.png" syle="width: 90%"></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><h3 align="center">Expectation</h3>
-<img src="/static/ml_afternoon/presentation_data/lecs1/1e.png" syle="width: 90%"></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><h3 align="center">Maximization</h3>
-<img src="/static/ml_afternoon/presentation_data/lecs1/1m.png" syle="width: 90%"></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><h3 align="center">Expectation</h3>
-<img src="/static/ml_afternoon/presentation_data/lecs1/2e.png" syle="width: 90%"></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><h3 align="center">Maximization</h3>
-<img src="/static/ml_afternoon/presentation_data/lecs1/2m.png" syle="width: 90%"></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><h3 align="center">Expectation</h3>
-<img src="/static/ml_afternoon/presentation_data/lecs1/3e.png" syle="width: 90%"></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><h3 align="center">Maximization</h3>
-<img src="/static/ml_afternoon/presentation_data/lecs1/3m.png" syle="width: 90%"></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><h3 align="center">Expectation</h3>
-<img src="/static/ml_afternoon/presentation_data/lecs1/4e.png" syle="width: 90%"></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><h3 align="center">Maximization</h3>
-<img src="/static/ml_afternoon/presentation_data/lecs1/4m.png" syle="width: 90%"></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Is it possible that the k-means algorithm <strong>increases</strong> the objective function in a full iteration?</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>What are some general techniques to overcome these scenarios?</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="How-many-clusters?">How many clusters?<a class="anchor-link" href="#How-many-clusters?">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Cross-Validation">Cross-Validation<a class="anchor-link" href="#Cross-Validation">&#182;</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Elbow-method">Elbow method<a class="anchor-link" href="#Elbow-method">&#182;</a></h3><p><img src="https://upload.wikimedia.org/wikipedia/commons/c/cd/DataClustering_ElbowCriterion.JPG" syle="width: 90%"></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><a href="https://en.wikipedia.org/wiki/Determining_the_number_of_clusters_in_a_data_set">Wikipedia</a> has a nice overview of all the different methods one could use</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="How-to-initialize-clusters?">How to initialize clusters?<a class="anchor-link" href="#How-to-initialize-clusters?">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>What are some techniques for choosing the initial points of the clusters</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="K-means++">K-means++<a class="anchor-link" href="#K-means++">&#182;</a></h3><ul>
-<li><a href="http://ilpubs.stanford.edu:8090/778/1/2006-13.pdf">original paper</a></li>
-<li><a href="https://en.wikipedia.org/wiki/K-means%2B%2B">Wikipedia article</a></li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ol>
-<li>Choose one center uniformly at random from among the data points.</li>
-<li>For each data point $x$ compute $D(x)$, the distance between $x$ and the nearest center that has already been chosen.</li>
-<li>Choose one new data point at random as a new center, using a weighted probability distribution where a point x is chosen with probability proportional to $D(x)^2$.</li>
-<li>Repeat Steps 2 and 3 until k centers have been chosen.</li>
-<li>Now that the initial centers have been chosen, proceed using standard k-means clustering.</li>
-</ol>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Resources">Resources<a class="anchor-link" href="#Resources">&#182;</a></h1><p><a href="http://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_assumptions.html#sphx-glr-auto-examples-cluster-plot-kmeans-assumptions-py">sci-kit learn demo</a></p>
-<p><a href="#">Bishop Chapter 9 (very high level)</a></p>
 
 </div>
 </div>
