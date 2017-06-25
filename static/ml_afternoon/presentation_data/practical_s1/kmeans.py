@@ -15,7 +15,7 @@ def plus_plus_initialize(data_array, num_clusters):
 class KMeans(object):
     def __init__(self, num_mixtures):
         self.K = num_mixtures
-        self.mus = []
+        self.means = []
 
     def initialize(self, data):
         """
@@ -38,7 +38,11 @@ class KMeans(object):
         :param data: data, numpy 2-D array
         :return: labels, numpy 1-D array
         """
+        # TODO: Determine which cluster each of the points belongs to
         pass
 
     def get_centers(self):
-        return list(zip(self.centers, self.covs))
+        """
+        Return list of centers of the clusters, i.e. means
+        """
+        return self.means
