@@ -19,9 +19,13 @@ class GaussianMixtureModel(object):
         self.K = num_mixtures
         self.centers = []  # List of centers
         self.weights = []  # List of weights
+        self.covariances = []  # List of covariances
         self.r = None  # Matrix of responsibilities, i.e. gamma
 
-    def initialize(self):
+    def initialize(self, data):
+        """
+        :param data: data, numpy 2-D array
+        """
         # TODO: Initialize cluster centers, weights, and covariances
         # Hint: Use K-means
         pass
@@ -31,7 +35,7 @@ class GaussianMixtureModel(object):
         :param data: data to fit, numpy 2-D array
         """
         # TODO: Initialize Mixtures, then run EM algorithm until it converges.
-        self.initialize()
+        self.initialize(data)
 
         for iteration in range(1, max_iter + 1):
             # TODO: Perfor E step

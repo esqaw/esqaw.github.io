@@ -17,7 +17,10 @@ class KMeans(object):
         self.K = num_mixtures
         self.mus = []
 
-    def initialize(self):
+    def initialize(self, data):
+        """
+        :param data: data, numpy 2-D array
+        """
         # TODO: Initialize cluster centers
         # Hint: Use one of the function at the top of the file.
         pass
