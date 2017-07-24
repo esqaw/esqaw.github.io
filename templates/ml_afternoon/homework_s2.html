@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>practical_s5_LDA</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>homework_s2</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -11780,16 +11780,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Practical-s5:-LDA">Practical s5: LDA<a class="anchor-link" href="#Practical-s5:-LDA">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>You will need <code>nltk</code> and <code>sklearn</code></p>
+<h1 id="Homework-s2">Homework s2<a class="anchor-link" href="#Homework-s2">&#182;</a></h1><p>n-bandit problem</p>
 
 </div>
 </div>
@@ -11799,67 +11790,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Download <code>nltk</code> using <code>pip</code>, then run the following code.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">nltk</span>
-<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>showing info https://raw.githubusercontent.com/nltk/nltk_data/gh-pages/index.xml
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-<div class="prompt output_prompt">Out[1]:</div>
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>True</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>You should see the following window.</p>
-<ol>
-<li>go to the <em>Corpora</em> tab</li>
-<li>download the following 2 files:<ul>
-<li>stopwords</li>
-<li>wordnet</li>
-</ul>
-</li>
-</ol>
-<p>You will need this files to remove stopwords from the text and to lametize the words.</p>
+<p>We are going to write a player that can play a n-bandit game</p>
 
 </div>
 </div>
@@ -11869,7 +11800,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="/static/ml_afternoon/presentation_data/practical_s5/nltk_download_screenshot.png" syle="width: 50%"></p>
+<p>Each bandit is giving out rewards with a Gaussian distribution $\mathcal{N}(x \mid \mu_i ; 1)$, where $\{ \mu_i \}$ are selected in the beginning of each game from the standard normal distribution.</p>
 
 </div>
 </div>
@@ -11879,9 +11810,19 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Download the following files:</p>
+<h1 id="Assigment">Assigment<a class="anchor-link" href="#Assigment">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Using <a href="/static/ml_afternoon/presentation_data/homework_s2/game.py">this template</a></p>
 <ul>
-<li><a href="/static/ml_afternoon/presentation_data/practical_s5/template.py">template.py</a> File containing skeleton code algorithms.</li>
+<li>write a Greedy Player, that picks the best action at any given time</li>
+<li>write an $\epsilon$-greedy player, that picks a random action $\epsilon$ part of the time and chooses the greedy action otherwise.</li>
 </ul>
 
 </div>
@@ -11892,7 +11833,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>When you run the code it will download a comporessed file with over 11,000 emails that we will use for LDA</p>
+<p>Run <code>game.py</code> with argument <code>--trials 1000</code> for different values of $\epsilon$ (hardcoded in the file) and see which of the players does the best after 500 iterations</p>
 
 </div>
 </div>
@@ -11902,27 +11843,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Sample output</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="/static/ml_afternoon/presentation_data/practical_s5/example_clusters.png" syle="width: 90%"></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Deliverables">Deliverables<a class="anchor-link" href="#Deliverables">&#182;</a></h1><p>Submit 2 files (your modified <code>template.py</code> file renamed to <code>YOURNAME.py</code> and a <code>.png</code> or <code>.txt</code> file with the topics) to <a href="mailto:ml.afternoon1+practical_s5@gmail.com">ml.afternoon1+practical_s5@gmail.com</a> with "<code>Practical s5 - YOUR NAME</code>" as subject.</p>
+<h1 id="Deliverables">Deliverables<a class="anchor-link" href="#Deliverables">&#182;</a></h1><p>Submit 2 files (your modified <code>game.py</code> file and a <code>.png</code> file with the plot) to <a href="mailto:ml.afternoon1+homework_s2@gmail.com">ml.afternoon1+homework_s2@gmail.com</a> with "<code>Homework s2 - YOUR NAME</code>" as subject.</p>
 
 </div>
 </div>
